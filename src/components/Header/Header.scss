@@ -1,0 +1,6 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.site-header {
+    background-color: $bg-primary-light;
+}
