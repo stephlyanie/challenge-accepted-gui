@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ChallengesPage from "./pages/ChallengesPage/ChallengesPage";
 import './App.scss';
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
     <BrowserRouter>
       <Routes>
       {/* ROOT ROUTE */}
-        <Route path="/"></Route>
+        <Route path="/" element={<ChallengesPage />}></Route>
 
       {/* CHALLENGES ROUTES */}
         <Route path="/challenges"></Route> {/* list of all challenges */}

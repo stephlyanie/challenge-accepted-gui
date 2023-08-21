@@ -1,6 +1,35 @@
-@use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
 
 .site-header {
     background-color: $bg-primary-light;
+    flex-direction: column;
+    padding: 1rem;
+    @include flex(center, center);
+
+    &__nav-list {
+        list-style: none;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding-inline-start: 0;
+        @include flex(center, baseline);
+    }
+
+    &__nav-link {
+        border-radius: 1.25rem;
+        font-size: .875rem;
+        font-weight: 500;
+        margin: 0 .5rem;
+        padding: .5rem 1rem;
+
+        &--active {
+            background-color: $bg-primary-dark;
+            color: $text-primary-light;
+        }
+
+        &:hover {
+            background-color: $bg-primary-dark-opacity;
+            color: $text-primary-light;
+        }
+    }
 }

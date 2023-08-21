@@ -1,0 +1,20 @@
+@use "./_variables" as *;
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+// Flex
+@mixin flex($justify: flex-start, $align: stretch) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
