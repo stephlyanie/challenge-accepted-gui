@@ -1,31 +1,31 @@
-import "./ChallengeCard.scss";
+import "./ItemCard.scss";
 import "../../styles/buttons.scss";
 
 
-function ChallengeCard() {
+function ItemCard() {
     return (
-        <section className="challenge">
-            <div className="challenge__image-container">
-                <img src={require("../../assets/images/placeholder-3.webp")} className="challenge__image"/>
-                <div className="challenge__creator">
-                    <div className="challenge__creator-container">
-                        <figure className="challenge__creator-image-container">
-                            <img src={require("../../assets/images/placeholder-3.webp")} className="challenge__creator-image" />
+        <section className="item">
+            <div className="item__image-container">
+                <img src={require("../../assets/images/placeholder-3.webp")} className="item__image"/>
+                <div className="item__creator">
+                    <div className="item__creator-container">
+                        <figure className="item__creator-image-container">
+                            <img src={require("../../assets/images/placeholder-3.webp")} className="item__creator-image" />
                         </figure>
-                        <p className="challenge__creator-name">Username</p>
+                        <p className="item__creator-name">Username</p>
                     </div>
                 </div>
             </div>
-            <div className="challenge__details">
-                <h3 className="challenge__details-title">Challenge Title</h3>
-                <div className="challenge__details-tags">
-                    <p className="challenge__details-tag">Category</p>
-                    <p className="challenge__details-tag">Type</p>
+            <div className="item__details">
+                <h3 className="item__details-title">Challenge Title</h3>
+                <div className="item__details-tags">
+                    <p className="item__details-tag">Category</p>
+                    <p className="item__details-tag">Type</p>
                 </div>
-                <p className="challenge__details-description">Cheesecake oat cake jelly-o pie bear claw halvah sesame snaps sweet roll. Jelly-o dessert bonbon muffin chocolate oat cake. Carrot cake cupcake sweet caramels oat cake.
+                <p className="item__details-description">Cheesecake oat cake jelly-o pie bear claw halvah sesame snaps sweet roll. Jelly-o dessert bonbon muffin chocolate oat cake. Carrot cake cupcake sweet caramels oat cake.
 
 </p>
-                <div className="challenge__details-buttons">
+                <div className="item__details-buttons">
                     <button className="button button__primary">Create</button>
                     <button className="button">Learn</button>
                 </div>
@@ -34,4 +34,4 @@ function ChallengeCard() {
     );
 }
 
-export default ChallengeCard;
+export default ItemCard;

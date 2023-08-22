@@ -1,11 +1,11 @@
 import Header from "../../components/Header/Header";
-import ChallengeCard from "../../components/ChallengeCard/ChallengeCard";
+import DetailsCard from "../../components/DetailsCard/DetailsCard";
 
 function ChallengesPage() {
     return (
         <main>
             <Header />
-            <ChallengeCard />
+            <DetailsCard />
         </main>
     )
 };
