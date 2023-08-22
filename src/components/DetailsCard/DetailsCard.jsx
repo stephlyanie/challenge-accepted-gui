@@ -11,7 +11,7 @@ function DetailsCard() {
                 </figure>
                 <p className="details__creator-name">Username</p>
             </div>
-            <h3 className="details__title">Challenge Title</h3>
+            <h2 className="details__title">Challenge Title</h2>
             <div className="details__tags">
                 <p className="details__tag">Category</p>
                 <p className="details__tag">Type</p>
