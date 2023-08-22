@@ -1,0 +1,26 @@
+@use "./mixins" as *;
+@use "./variables" as *;
+
+.button {
+    background-color: $bg-primary-light;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: .75rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: $bg-secondary-light;
+        color: $text-primary-dark;
+    }
+
+    &__primary {
+        background-color: $bg-primary-dark;
+        color: $text-primary-light;
+    }
+
+    @include desktop {
+        font-size: 1rem;
+    }
+}

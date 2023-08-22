@@ -7,10 +7,23 @@
   box-sizing: border-box;
 }
 
-// Margin reset and setting font-family
+// Margin resets
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   font-weight: normal;
   color: $text-primary-dark;
+}
+
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
