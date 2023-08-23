@@ -23,7 +23,7 @@ function SimpleGallery() {
                 </div>
             </div>
 
-            <div className="details__buttons">
+            <div className="gallery__buttons">
                 <button className="button button__primary gallery__button">Load More</button>
             </div>
         </section>

@@ -67,11 +67,17 @@
         text-transform: uppercase;
     }
 
+    &__buttons {
+        @include desktop {
+            @include flex(center, center);
+            margin: 2rem;
+        }
+    }
+
     &__button {
         width: 100%;
 
         @include desktop {
-            margin: 1rem auto;
             width: auto;
         }
     }
