@@ -27,3 +27,17 @@ p {
   margin-inline-start: 0;
   margin-inline-end: 0;
 }
+
+// Set site margins
+main {
+  margin: 1rem;
+
+  @include tablet {
+    margin: 1.25rem 2rem;
+  }
+
+  @include desktop {
+    margin: 2rem 8rem;
+  }
+
+}

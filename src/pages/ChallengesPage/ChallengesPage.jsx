@@ -4,11 +4,10 @@ import SimpleGallery from "../../components/SimpleGallery/SimpleGallery";
 
 function ChallengesPage() {
     return (
-        <main>
-            <Header />
+        <div>
             <ProfileCard />
             <SimpleGallery />
-        </main>
+        </div>
     )
 };
 

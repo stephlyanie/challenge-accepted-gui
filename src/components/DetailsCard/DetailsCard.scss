@@ -2,8 +2,6 @@
 @use "../../styles/variables" as *;
 
 .details {
-    margin: 1rem; 
-
     &__creator {
         @include flex(flex-start, center);
         margin: 1rem 0;
@@ -92,13 +90,5 @@
         @include desktop {
             width: auto;
         }
-    }
-
-    @include tablet {
-        margin: 1.25rem 2rem;
-    }
-
-    @include desktop {
-        margin: 1.25rem 8rem;
     }
 }

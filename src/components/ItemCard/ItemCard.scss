@@ -3,7 +3,6 @@
 
 .item {
     border: solid 1px black;
-    margin: 1rem;
     padding: 1rem;
 
     &__image-container {
@@ -112,11 +111,9 @@
 
     @include tablet {
         @include flex(space-between);
-        margin: 1.25rem 2rem;
     }
 
     @include desktop {
         flex-direction: column;
-        margin: 1.25rem 8rem;
     }
 }
