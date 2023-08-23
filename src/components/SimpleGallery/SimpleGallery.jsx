@@ -8,18 +8,18 @@ function SimpleGallery() {
             <div className="gallery__container">
                 <div className="gallery__card">
                     <img src={require("../../assets/images/placeholder-3.webp")} className="gallery__image"/>
+                    <h4 className="gallery__name">Name</h4>
+                    <p className="gallery__tag">Username</p>
                 </div>
                 <div className="gallery__card">
                     <img src={require("../../assets/images/placeholder-3.webp")} className="gallery__image"/>
+                    <h4 className="gallery__name">Name</h4>
+                    <p className="gallery__tag">Username</p>
                 </div>
                 <div className="gallery__card">
                     <img src={require("../../assets/images/placeholder-3.webp")} className="gallery__image"/>
-                </div>
-                <div className="gallery__card">
-                    <img src={require("../../assets/images/placeholder-3.webp")} className="gallery__image"/>
-                </div>
-                <div className="gallery__card">
-                    <img src={require("../../assets/images/placeholder-3.webp")} className="gallery__image"/>
+                    <h4 className="gallery__name">Name</h4>
+                    <p className="gallery__tag">Username</p>
                 </div>
             </div>
 

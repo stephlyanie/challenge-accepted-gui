@@ -3,7 +3,7 @@
 
 .gallery {
     border-top: solid 1px $border-primary-dark;
-    margin: 1rem;
+    margin-top: 2rem;
     padding-top: 1rem;
 
     &__title {
@@ -23,14 +23,17 @@
         @include flex(space-between, center);
     
         flex-wrap: wrap;
+        margin: 1rem 0;
     }
 
     &__card {
-        width: 31%;
+        border: solid 1px $border-primary-dark;
         margin: .125rem;
+        padding: .5rem;
+        width: 48%;
 
         @include tablet {
-            position: relative;
+            width: 31%;
         }
     }
 
@@ -41,30 +44,8 @@
         width: 100%;
     }
 
-    &__creator {
-        @include tablet {
-            position: absolute;
-            top: 0;
-        }
-    }
-
-    &__creator-container {
-        @include flex(flex-start, center);
-        margin: 0.5rem;
-    }
-
-    &__creator-image {
-        border-radius: 50%;
-        height: 35px;
-        margin-right: 0.5rem;
-        width: 35px;
-        object-fit: cover;
-    }
-
-    &__creator-name {
-        font-size: .825rem;
-        font-weight: 500;
-        text-transform: uppercase;
+    &__tag {
+        font-size: .6875rem;
     }
 
     &__buttons {
@@ -83,12 +64,10 @@
     }
 
     @include tablet {
-        margin: 1.25rem 2rem;
         padding-top: 1.25rem;
     }
 
     @include desktop {
-        margin: 2rem 8rem;
         padding-top: 2rem;
     }
 }
