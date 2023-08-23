@@ -1,12 +1,12 @@
 import Header from "../../components/Header/Header";
-import DetailsCard from "../../components/DetailsCard/DetailsCard";
+import ProfileCard from "../../components/ProfileCard/ProfileCard";
 import SimpleGallery from "../../components/SimpleGallery/SimpleGallery";
 
 function ChallengesPage() {
     return (
         <main>
             <Header />
-            <DetailsCard />
+            <ProfileCard />
             <SimpleGallery />
         </main>
     )
