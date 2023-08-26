@@ -13,7 +13,7 @@ function DetailsCard({data}) {
             </div>
             <h2 className="details__title">{data.name}</h2>
             <div className="details__tags">
-                <p className="item__details-tag">{data.challenge ? data.challenge : ""}</p>
+                <p className={data.challenge ? "item__details-tag" : "item__details-tag--hidden"}>{data.challenge}</p>
                 <p className="details__tag">{data.category}</p>
                 <p className="details__tag">{data.type}</p>
             </div>
