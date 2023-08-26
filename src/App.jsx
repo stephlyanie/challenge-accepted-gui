@@ -5,6 +5,9 @@ import SingleChallengePage from "./pages/SingleChallengePage/SingleChallengePage
 
 import CreationsPage from "./pages/CreationsPage/CreationsPage";
 import SingleCreationPage from "./pages/SingleCreationPage/SingleCreationPage";
+
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+
 import './App.scss';
 
 function App() {
@@ -30,7 +33,7 @@ function App() {
           
         {/* PROFILE ROUTES */}
           <Route path="/profile"></Route> {/* redirect to profile/:id */}
-          <Route path="/profile/:id"></Route> {/* user's profile when logged in */}
+          <Route path="/profile/:userId" element={<ProfilePage />}></Route> {/* user's profile when logged in */}
           <Route path="/profile/:id/edit"></Route> {/* edit profile if logged in */}
           <Route path="/profile/:id/deletee"></Route> {/* delete profile if logged in */}
           <Route path="/profile/:id/challenges"></Route> {/* list of all challenges associated with user's profile*/}
