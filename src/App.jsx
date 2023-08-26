@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import ChallengesPage from "./pages/ChallengesPage/ChallengesPage";
 import CreationsPage from "./pages/CreationsPage/CreationsPage";
+import SingleCreationPage from "./pages/SingleCreationPage/SingleCreationPage";
 import './App.scss';
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
         
         {/* CREATIONS ROUTES */}
           <Route path="/creations" element={<CreationsPage />}></Route> {/* list of all creations */}
-          <Route path="/creations/:id"></Route> {/* single creation */}
+          <Route path="/creations/:creationId" element={<SingleCreationPage />}></Route> {/* single creation */}
           <Route path="/creations/:id/edit"></Route> {/* edit single creation if logged in */}
           <Route path="/creations/:id/delete"></Route> {/* delete single creation if logged in */}
           

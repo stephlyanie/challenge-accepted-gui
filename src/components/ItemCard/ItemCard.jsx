@@ -6,7 +6,7 @@ function ItemCard({ data }) {
     return (
         <section>
             {data.map((item) => (
-                <div className="item">
+                <div key={item.id} className="item">
                     <div className="item__image-container">
                         <img src={item.image_url} className="item__image"/>
                         <div className="item__creator">

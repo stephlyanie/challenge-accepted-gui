@@ -2,12 +2,12 @@ import "./ProfileCard.scss";
 import "../../styles/buttons.scss";
 
 
-function ProfileCard() {
+function ProfileCard({data}) {
     return (
         <section className="profile">
-            <h3 className="profile__name">FirstName LastName</h3>
-            <p className="profile__username">Username</p>
-            <img src={require("../../assets/images/placeholder-3.webp")} className="profile__image"/>
+            <h3 className="profile__name">{data.first_name} {data.last_name}</h3>
+            <p className="profile__username">{data.username}</p>
+            <img src={data.image_url} className="profile__image"/>
         </section>
     );
 }
