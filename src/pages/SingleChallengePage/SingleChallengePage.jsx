@@ -3,17 +3,19 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 import DetailsCard from "../../components/DetailsCard/DetailsCard";
+import SimpleGallery from "../../components/SimpleGallery/SimpleGallery";
 
 function SingleChallengePage() {
 
-    const [data, setData] = useState([]);
     const { challengeId } = useParams();
+    const [data, setData] = useState([]);
+    const [gallery, setGallery] = useState([]);
+    const galleryTitle = "Related Creations";
 
     useEffect(() => {
         axios
             .get(`http://localhost:8080/challenges/${challengeId}`)
             .then((res) => {
-                console.log(res.data)
                 setData(res.data[0]);
             })
             .catch((error) => {
@@ -21,10 +23,22 @@ function SingleChallengePage() {
             })
     }, [])
 
+    useEffect(() => {
+        axios
+        .get(`http://localhost:8080/challenges/${challengeId}/creations`)
+        .then((res) => {
+            setGallery(res.data);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+    }, [])
+
 
     return (
         <div>
             <DetailsCard data={data} />
+            <SimpleGallery galleryTitle={galleryTitle} gallery={gallery} />
         </div>
     )
 };
