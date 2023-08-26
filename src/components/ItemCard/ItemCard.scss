@@ -2,8 +2,9 @@
 @use "../../styles/variables" as *;
 
 .item {
-    border: solid 1px black;
+    border: solid 1px $border-primary-light;
     padding: 1rem;
+    margin: 0.5rem 0;
 
     &__image-container {
         @include tablet {
@@ -91,10 +92,13 @@
     }
 
     &__details-tag {
+        @include flex(flex-start, center);
+
         background-color: $bg-primary-light;
         border-radius: 0.25rem;
         margin-right: 0.5rem;
         padding: .25rem .5rem;
+        vertical-align: middle;
     }
 
     &__details-description {

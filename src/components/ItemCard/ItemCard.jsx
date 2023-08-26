@@ -19,8 +19,9 @@ function ItemCard({ data }) {
                         </div>
                     </div>
                     <div className="item__details">
-                        <h3 className="item__details-title">{item.challenge_name}</h3>
+                        <h3 className="item__details-title">{item.name}</h3>
                         <div className="item__details-tags">
+                            <p className="item__details-tag">{item.challenge ? item.challenge : ""}</p>
                             <p className="item__details-tag">{item.category}</p>
                             <p className="item__details-tag">{item.type}</p>
                         </div>
