@@ -26,6 +26,7 @@ function ProfilePage() {
             })
     }, [])
 
+    
 //
 // Simple Gallery Component
 //
@@ -35,6 +36,7 @@ function ProfilePage() {
     const [creationsTab, setCreationsTab] = useState(true); // Stores the gallery creations tab as true/false
     const [challengesTab, setChallengesTab] = useState(false); // Stores the gallery challenges tab as true/false
 
+    
     // Calls database to set the simple gallery to challenges or creations data from user ID
     // Listens for creationsTab and challengesTab changes
     
