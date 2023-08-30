@@ -22,6 +22,19 @@ function CreateForm() {
   const [challengeId, setChallengeId] = useState("");
   const [categoryId, setCategoryId] = useState("");
 
+ 
+useEffect(() => {
+axios
+.get('http://localhost:8080/categories/')
+.then((res) => {
+    setCategories(res.data)
+})
+.catch((error) => {
+    console.error(error);
+})
+}, [])
+
+
   
 
 //   Handles form field changes
