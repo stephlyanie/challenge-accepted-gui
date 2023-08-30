@@ -34,7 +34,28 @@ axios
 })
 }, [])
 
-
+useEffect(() => {
+// Sets the list of types depending on the selected category
+    axios
+    .get('http://localhost:8080/types/')
+    .then((res) => {
+        setTypes(res.data)
+    })
+    .catch((error) => {
+        console.error(error);
+    })
+if (category) {
+    console.log(categoryId)
+    axios
+    .get(`http://localhost:8080/categories/${categoryId}/types`)
+    .then((res) => {
+        setTypes(res.data)
+    })
+    .catch((error) => {
+        console.error(error);
+    })
+}
+}, [category])
   
 
 //   Handles form field changes
