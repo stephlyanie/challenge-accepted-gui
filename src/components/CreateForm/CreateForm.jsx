@@ -21,6 +21,8 @@ function CreateForm() {
 
   const [challengeId, setChallengeId] = useState("");
   const [categoryId, setCategoryId] = useState("");
+  const [typeId, setTypeId] = useState("");
+
 
   useEffect(() => {
     if (!challenge) {
