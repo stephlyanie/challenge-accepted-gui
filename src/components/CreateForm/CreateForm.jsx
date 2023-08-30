@@ -22,7 +22,31 @@ function CreateForm() {
   const [challengeId, setChallengeId] = useState("");
   const [categoryId, setCategoryId] = useState("");
 
- 
+  useEffect(() => {
+    if (!challenge) {
+        axios
+        .get('http://localhost:8080/challenges')
+        .then((res) => {
+            setChallenges(res.data);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+    }
+
+    if (challenge) {
+        axios
+        .get(`http://localhost:8080/challenges/${challengeId}`)
+        .then((res) => {
+            setCategory(res.data[0].category);
+            setType(res.data[0].type)
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+    }
+}, [challenge])
+
 useEffect(() => {
 axios
 .get('http://localhost:8080/categories/')
