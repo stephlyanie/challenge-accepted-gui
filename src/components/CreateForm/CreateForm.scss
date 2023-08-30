@@ -1,0 +1,28 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.create-form {
+
+    &__field {
+        @include flex();
+        flex-direction: column;
+        margin: 1rem 0;
+    }
+
+    &__label {
+        font-size: .825rem;
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+        text-transform: uppercase;
+    }
+
+    &__input {
+        border: solid 1px $border-primary-dark;
+        border-radius: .25rem;
+        padding: 0.5rem;
+    }
+
+    &__placeholder {
+        color: $text-primary-light;
+    }
+}

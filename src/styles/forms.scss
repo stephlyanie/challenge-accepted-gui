@@ -1,0 +1,34 @@
+@use "./_variables" as *;
+
+fieldset {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-block-start: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    padding-block-end: 0;
+    min-inline-size: 0;
+    border-width: 0;
+}
+
+select {
+    appearance: none;
+}
+
+textarea {
+    border: solid 1px $border-primary-dark;
+    font-family: 'Montserrat';
+}
+
+input[type="radio" i] {
+    margin: 0 .5rem 0 0;
+}
+
+input[type="submit" i] {
+    padding: 0 1rem;
+    border-width: 0;
+}
+
+button {
+    padding: 0;
+}

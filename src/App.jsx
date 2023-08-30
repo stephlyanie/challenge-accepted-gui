@@ -8,6 +8,9 @@ import SingleCreationPage from "./pages/SingleCreationPage/SingleCreationPage";
 
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
+import CreatePage from "./pages/CreatePage/CreatePage";
+
+
 import './App.scss';
 
 function App() {
@@ -24,7 +27,8 @@ function App() {
           <Route path="/challenges/:challengeId" element={<SingleChallengePage />}></Route> {/* single challenge */}
           <Route path="/challenges/:id/edit"></Route> {/* edit single challenge if logged in */}
           <Route path="/challenges/:id/delete"></Route> {/* delete single challenge if logged in */}
-        
+          <Route path="/challenges/:id/create"></Route> {/* create a specific challenge */}
+      
         {/* CREATIONS ROUTES */}
           <Route path="/creations" element={<CreationsPage />}></Route> {/* list of all creations */}
           <Route path="/creations/:creationId" element={<SingleCreationPage />}></Route> {/* single creation */}
@@ -35,10 +39,13 @@ function App() {
           <Route path="/profile"></Route> {/* redirect to profile/:id */}
           <Route path="/profile/:userId" element={<ProfilePage />}></Route> {/* user's profile when logged in */}
           <Route path="/profile/:id/edit"></Route> {/* edit profile if logged in */}
-          <Route path="/profile/:id/deletee"></Route> {/* delete profile if logged in */}
+          <Route path="/profile/:id/delete"></Route> {/* delete profile if logged in */}
           <Route path="/profile/:id/challenges"></Route> {/* list of all challenges associated with user's profile*/}
           <Route path="/profile/:id/creations"></Route> {/* list of all creations associated with user's profile*/}
           
+        {/* CREATE ROUTE */}
+          <Route path="/create" element={<CreatePage />}></Route>
+        
         {/* SIGN UP ROUTE */}
           <Route path="/signup"></Route>
 
