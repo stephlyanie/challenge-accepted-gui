@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./CreateForm.scss";
+import "./CreationForm.scss";
 import "../../styles/buttons.scss";
 import "../../styles/forms.scss";
 
 
-function CreateForm() {
+function CreationForm() {
     const [challenge, setChallenge] = useState("");
   const [category, setCategory] = useState("");
   const [type, setType] = useState("");
@@ -200,4 +200,4 @@ if (category) {
   );
 }
 
-export default CreateForm;
+export default CreationForm;

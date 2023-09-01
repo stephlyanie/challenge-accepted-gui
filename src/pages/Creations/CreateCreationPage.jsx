@@ -2,17 +2,17 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import CreateForm from "../../components/CreateForm/CreateForm";
+import CreationForm from "../../components/Forms/CreationForm";
 
-function CreatePage() {
+function CreateCreationPage() {
 
     const [data, setData] = useState([]);
 
     return (
         <div>
-            <CreateForm data={data} />
+            <CreationForm data={data} />
         </div>
     )
 };
 
-export default CreatePage;
+export default CreateCreationPage;
