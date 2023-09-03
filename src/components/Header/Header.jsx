@@ -86,8 +86,7 @@ function Header() {
   return (
     <section className="site-header">
       <section className="site-header__logo">
-        <Link to="/"
-        onClick={handleChallengesClick}>
+        <Link to="/" onClick={handleChallengesClick}>
           <Logo />
         </Link>
       </section>
