@@ -9,6 +9,7 @@ import EditChallengePage from "./pages/Challenges/EditChallengePage";
 import CreationsPage from "./pages/Creations/CreationsPage";
 import SingleCreationPage from "./pages/Creations/SingleCreationPage";
 import CreateCreationPage from "./pages/Creations/CreateCreationPage";
+import EditCreationPage from "./pages/Creations/EditCreationPage";
 
 import ProfilePage from "./pages/Profile/ProfilePage";
 
@@ -35,7 +36,7 @@ function App() {
         {/* CREATIONS ROUTES */}
           <Route path="/creations" element={<CreationsPage />}></Route> {/* list of all creations */}
           <Route path="/creations/:creationId" element={<SingleCreationPage />}></Route> {/* single creation */}
-          <Route path="/creations/:id/edit"></Route> {/* edit single creation if logged in */}
+          <Route path="/creations/:creationId/edit" element={<EditCreationPage />}></Route> {/* edit single creation if logged in */}
           <Route path="/creations/:id/delete"></Route> {/* delete single creation if logged in */}
           
         {/* PROFILE ROUTES */}

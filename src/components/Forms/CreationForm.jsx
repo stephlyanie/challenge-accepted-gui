@@ -5,7 +5,7 @@ import "./CreationForm.scss";
 import "../../styles/buttons.scss";
 import "../../styles/forms.scss";
 
-function CreationForm({ formRef, handleSubmit }) {
+function CreationForm({ creationId, formRef, handleSubmit }) {
   const [challenge, setChallenge] = useState("");
   const [category, setCategory] = useState("");
   const [type, setType] = useState("");
@@ -21,6 +21,21 @@ function CreationForm({ formRef, handleSubmit }) {
   const [challengeId, setChallengeId] = useState("");
   const [categoryId, setCategoryId] = useState("");
   const [typeId, setTypeId] = useState("");
+
+  useEffect(() => {
+    if (creationId) {
+      // axios to challenge id to set data
+      axios
+      .get(`http://localhost:8080/creations/${creationId}`)
+      .then((res) => {
+        setChallenge(res.data[0].challenge)
+        setCategory(res.data[0].category)
+        setType(res.data[0].type)
+        setName(res.data[0].name)
+        setDescription(res.data[0].description)
+      })
+    }
+  }, []);
 
   useEffect(() => {
     if (!challenge) {
