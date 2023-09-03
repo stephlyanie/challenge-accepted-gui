@@ -86,7 +86,10 @@ function Header() {
   return (
     <section className="site-header">
       <section className="site-header__logo">
-        <Logo />
+        <Link to="/"
+        onClick={handleChallengesClick}>
+          <Logo />
+        </Link>
       </section>
       <section className="site-header__nav">
         <nav className="site-header__nav-links">
