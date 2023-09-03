@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./ItemCard.scss";
 import "../../styles/buttons.scss";
 
@@ -39,8 +41,8 @@ function ItemCard({ data }) {
                 </div>
                 <p className="item__details-description">{item.description}</p>
                 <div className="item__details-buttons">
-                <button className="button button__primary">Create</button>
-                <button className="button">Learn</button>
+                <Link to={`/challenges/${item.id}/create`}><button className="button button__primary">Create</button></Link>
+                <Link to={`/challenges/${item.id}`}><button className="button">Learn</button></Link>
                 </div>
             </div>
           </div>
