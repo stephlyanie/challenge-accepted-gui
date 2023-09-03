@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
+
 import ChallengesPage from "./pages/Challenges/ChallengesPage";
 import SingleChallengePage from "./pages/Challenges/SingleChallengePage";
 import CreateChallengePage from "./pages/Challenges/CreateChallengePage";
+import EditChallengePage from "./pages/Challenges/EditChallengePage";
 
 import CreationsPage from "./pages/Creations/CreationsPage";
 import SingleCreationPage from "./pages/Creations/SingleCreationPage";
@@ -26,7 +28,7 @@ function App() {
         {/* CHALLENGES ROUTES */}
           <Route path="/challenges" element={<ChallengesPage />}></Route> {/* list of all challenges */}
           <Route path="/challenges/:challengeId" element={<SingleChallengePage />}></Route> {/* single challenge */}
-          <Route path="/challenges/:id/edit"></Route> {/* edit single challenge if logged in */}
+          <Route path="/challenges/:challengeId/edit" element={<EditChallengePage />}></Route> {/* edit single challenge if logged in */}
           <Route path="/challenges/:id/delete"></Route> {/* delete single challenge if logged in */}
           <Route path="/challenges/:id/create"></Route> {/* create a specific challenge */}
       
