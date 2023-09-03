@@ -15,6 +15,10 @@ select {
     appearance: none;
 }
 
+input, select {
+    font-family: 'Montserrat';
+}
+
 textarea {
     border: solid 1px $border-primary-dark;
     font-family: 'Montserrat';

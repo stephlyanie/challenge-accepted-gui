@@ -16,6 +16,10 @@
         text-transform: uppercase;
     }
 
+    &__select {
+        color: $text-secondary-light;
+    }
+
     &__input {
         border: solid 1px $border-primary-dark;
         border-radius: .25rem;
@@ -23,6 +27,14 @@
     }
 
     &__placeholder {
-        color: $text-primary-light;
+        color: $text-secondary-light;
+        font-family: 'Montserrat';
+    }
+
+    &__textarea {
+        border: solid 1px $border-primary-dark;
+        border-radius: .25rem;
+        height: 9.375rem;
+        padding: 0.5rem;
     }
 }
