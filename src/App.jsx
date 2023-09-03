@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import ChallengesPage from "./pages/Challenges/ChallengesPage";
 import SingleChallengePage from "./pages/Challenges/SingleChallengePage";
+import CreateChallengePage from "./pages/Challenges/CreateChallengePage";
 
 import CreationsPage from "./pages/Creations/CreationsPage";
 import SingleCreationPage from "./pages/Creations/SingleCreationPage";
@@ -44,6 +45,7 @@ function App() {
           <Route path="/profile/:id/creations"></Route> {/* list of all creations associated with user's profile*/}
           
         {/* CREATE ROUTE */}
+          <Route path="/create/challenge" element={<CreateChallengePage />}></Route>
           <Route path="/create/creation" element={<CreateCreationPage />}></Route>
         
         {/* SIGN UP ROUTE */}
