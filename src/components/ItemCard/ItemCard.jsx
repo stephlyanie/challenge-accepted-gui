@@ -44,7 +44,7 @@ function ItemCard({ data, isChallenge }) {
               <div className="item__details-buttons">
 
                 {/* Sets link according to whether item card is used for a challenge or a creation */}
-                <Link to={isChallenge ? `/challenges/${item.id}/create` : `/creations/${item.challenge_id}/create`}>
+                <Link to={isChallenge ? `/challenges/${item.id}/create` : `/challenges/${item.challenge_id}/create`}>
                   <button className="button button__primary">Create</button>
                 </Link>
 
