@@ -32,7 +32,7 @@ function ProfilePage() {
 //
 
     const [gallery, setGallery] = useState([]); // Stores creations or challenges data from single user and passes to simple gallery component
-    const [galleryTitle, setGalleryTitle] = useState(``); // Stores gallery title to pass to simple gallery component
+    const [galleryTitle, setGalleryTitle] = useState(null); // Stores gallery title to pass to simple gallery component
     const [creationsTab, setCreationsTab] = useState(true); // Stores the gallery creations tab as true/false
     const [challengesTab, setChallengesTab] = useState(false); // Stores the gallery challenges tab as true/false
 
@@ -44,14 +44,12 @@ function ProfilePage() {
 
         // If the challenges tab is true (challenges button clicked)
         // Sets the simple gallery data as list of challenges from the user
-        // Set gallery title to challenges
-
+        // Does not set a gallery title 
         if (challengesTab) {
             axios
             .get(`http://localhost:8080/users/${userId}/challenges`)
             .then((res) => {
                 setGallery(res.data)
-                setGalleryTitle(`Challenges by ${data.username}`)
             })
             .catch((error) => {
                 console.log(error);
@@ -60,13 +58,11 @@ function ProfilePage() {
 
         // On load and if the creations tab is true (creations button clicked)
         // Sets the simple gallery data as list of creations from the user
-        // Set gallery title to creations
-
+        // Does not set a gallery title 
         axios
         .get(`http://localhost:8080/users/${userId}/creations`)
         .then((res) => {
             setGallery(res.data)
-            setGalleryTitle(`Creations by ${data.username}`)
         })
         .catch((error) => {
             console.log(error);
@@ -76,7 +72,6 @@ function ProfilePage() {
     // Button handler for creations tab
     // Sets creationsTab to true on click
     // Toggles ChallengesTab to false
-
     const handleCreationsTab = () => {
         setCreationsTab(true);
         setChallengesTab(false);
@@ -86,7 +81,6 @@ function ProfilePage() {
     // Button handler for challenges tab
     // Sets challengesTab to true on click
     // Toggles CreationsTab to false
-
     const handleChallengesTab = () => {
         setCreationsTab(false);
         setChallengesTab(true);
@@ -101,11 +95,11 @@ function ProfilePage() {
             {/* Profile Component */}
             <ProfileCard data={data} />
             
-            <div className="">
+            <div className="profile-gallery">
 
                 {/* Gallery Tab Buttons */}
-                <button id="creations" onClick={handleCreationsTab}>Creations</button>
-                <button id="challenges" onClick={handleChallengesTab}>Challenges</button>
+                <button id="creations" className="button" onClick={handleCreationsTab}>Creations</button>
+                <button id="challenges" className="button" onClick={handleChallengesTab}>Challenges</button>
                 
                 {/* Simple Gallery Component */}
                 {gallery.length > 1 ? <SimpleGallery galleryTitle={galleryTitle} gallery={gallery} /> : <p>None here yet.</p>}

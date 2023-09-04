@@ -44,6 +44,15 @@
         width: 100%;
     }
 
+    &__name-link {
+        color: $text-primary-dark;
+        text-decoration: none;
+
+        &:hover {
+            color: $text-secondary-dark;
+        }
+    }
+
     &__tag {
         font-size: .6875rem;
     }
