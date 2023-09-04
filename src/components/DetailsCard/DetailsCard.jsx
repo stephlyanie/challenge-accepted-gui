@@ -9,7 +9,7 @@ function DetailsCard({ data }) {
       <div className="details__creator">
         <figure className="details__creator-image-container">
           <img
-            src={require("../../assets/images/placeholder-3.webp")}
+            src={data.profile_pic}
             className="details__creator-image"
           />
         </figure>
@@ -34,9 +34,9 @@ function DetailsCard({ data }) {
       <div className="details__container">
         <p className="details__description">{data.description}</p>
         <div className="details__buttons">
-        <Link to={`/challenges/${data.id}/create`}><button className="button button__primary details__button">
-            Create
-          </button></Link>
+          <Link to={data.challenge ? `/challenges/${data.challenge_id}/create` : `/challenges/${data.id}/create`}>
+              <button className="button button__primary">Create</button>
+          </Link>
         </div>
       </div>
     </section>
