@@ -16,19 +16,14 @@
         text-transform: uppercase;
     }
 
-    &__select {
-        color: $text-secondary-light;
-    }
-
     &__input {
         border: solid 1px $border-primary-dark;
         border-radius: .25rem;
         padding: 0.5rem;
-    }
 
-    &__placeholder {
-        color: $text-secondary-light;
-        font-family: 'Montserrat';
+        &--placeholder {
+            background-color: $bg-primary-light;
+        }
     }
 
     &__textarea {
@@ -36,5 +31,29 @@
         border-radius: .25rem;
         height: 9.375rem;
         padding: 0.5rem;
+    }
+
+    &__buttons-container {
+        @include flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+
+        @include tablet {
+            flex-direction: row;
+            align-items: baseline;
+        }
+    }
+
+    &__button-cancel {
+        margin-bottom: 0.5rem;
+
+        @include tablet {
+            margin-right: 1rem;
+        }
+    }
+
+    @include tablet {
+        margin: 4rem auto;
+        max-width: 700px;
     }
 }

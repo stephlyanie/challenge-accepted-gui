@@ -157,13 +157,13 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
 
   return (
     <form ref={formRef} className="create-form" onSubmit={handleSubmit}>
-      <section>
+      <section className="create-form__container">
 
         {/* Default/Placeholder User */}
         <div className="create-form__field">
           <input
             type="text"
-            className="create-form__input"
+            className="create-form__input create-form__input--placeholder"
             name="username"
             placeholder="Username"
             value="brains"
@@ -180,8 +180,8 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
             onChange={handleChangeChallenge}
             value={challenge}
           >
-            <option className="create-form__placeholder" value="" disabled>
-              Pick a challenge
+            <option value="" hidden selected disabled>
+            – pick a challenge –
             </option>
             {challenges.map((challenge) => (
               <option
@@ -205,7 +205,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
             value={category}
           >
             <option className="create-form__placeholder" value="" disabled>
-              Pick a category
+            – pick a category –
             </option>
             {categories.map((category) => (
               <option key={category.id} id={category.id} value={category.name}>
@@ -225,7 +225,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
             value={type}
           >
             <option className="create-form__placeholder" value="" disabled>
-              Pick a type
+            – pick a type –
             </option>
             {types.map((type) => (
               <option key={type.id} id={type.id} value={type.name}>
@@ -234,8 +234,6 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
             ))}
           </select>
         </div>
-      </section>
-      <section>
 
         {/* Creation Name */}
         <div className="create-form__field">
@@ -243,7 +241,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
             type="text"
             className="create-form__input"
             name="name"
-            placeholder="Name your creation"
+            placeholder="– name your creation –"
             onChange={handleChangeName}
             value={name}
           />
@@ -254,26 +252,24 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
           <textarea
             className="create-form__textarea"
             name="description"
-            placeholder="Describe your creation"
+            placeholder="– describe your creation –"
             onChange={handleChangeDescription}
             value={description}
           ></textarea>
         </div>
       </section>
-      <section className="inventory-form__buttons">
-        <div className="inventory-form__buttons-container">
-          <>
-            <button
-              type="reset"
-              className="button button__secondary inventory-form__button-cancel"
-            >
-              Cancel
-            </button>
-          </>
+      <section className="create-form__buttons">
+        <div className="create-form__buttons-container">
+          <button
+            type="reset"
+            className="button button__secondary create-form__button-cancel"
+          >
+            Cancel
+          </button>
           <input
             type="submit"
-            className="button button__primary inventory-form__button-submit"
-            value="+ Add Item"
+            className="button button__primary create-form__button-submit"
+            value="Submit"
           />
         </div>
       </section>
