@@ -310,7 +310,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
           />
         </div>
 
-        {/* Description */}
+        {/* Creation Description */}
         <div className="create-form__field">
           <textarea
             className="create-form__textarea"
@@ -322,6 +322,8 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
         </div>
       </section>
       <section className="create-form__buttons">
+
+        {/* Reset Button */}
         <div className="create-form__buttons-container">
           <button
             type="reset"
@@ -329,6 +331,8 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
           >
             Reset Form
           </button>
+
+          {/* Submit Button */}
           <input
             type="submit"
             className="button button__primary create-form__button-submit"
