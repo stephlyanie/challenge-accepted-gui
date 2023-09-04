@@ -212,6 +212,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
     }
   };
 
+  // Renders to page
   return (
     <form
       id="create-form"
