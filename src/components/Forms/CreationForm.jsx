@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./CreationForm.scss";
+import "./Form.scss";
 import "../../styles/buttons.scss";
 import "../../styles/forms.scss";
 
@@ -228,7 +228,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
             type="text"
             className="create-form__input create-form__input--placeholder"
             name="username"
-            placeholder="Username"
+            placeholder="– username –"
             value="brains"
             id="DADDA3C9-C1F8-4BAF-AC74-05AABED44DD5"
           />
@@ -322,12 +322,11 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
         </div>
       </section>
       <section className="create-form__buttons">
-
         {/* Reset Button */}
         <div className="create-form__buttons-container">
           <button
             type="reset"
-            className="button button__secondary create-form__button-cancel"
+            className="button button__secondary create-form__button-reset"
           >
             Reset Form
           </button>

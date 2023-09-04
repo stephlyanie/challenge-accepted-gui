@@ -2,7 +2,6 @@
 @use "../../styles/variables" as *;
 
 .create-form {
-
     &__field {
         @include flex();
         flex-direction: column;
@@ -44,7 +43,7 @@
         }
     }
 
-    &__button-cancel {
+    &__button-reset {
         margin-bottom: 0.5rem;
 
         @include tablet {
