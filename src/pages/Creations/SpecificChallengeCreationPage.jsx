@@ -28,7 +28,9 @@ function SpecificChallengeCreationPage() {
     return (
         <div>
             <CreationForm challengeId={challengeId} formRef={formRef} handleSubmit={handleSubmit} />
-            <Link to="/create/challenge">Create Something Else</Link>
+            <div className="button__container">
+                <Link to="/create/creation" className="button">Create Something Else</Link>
+            </div>
         </div>
     )
 };

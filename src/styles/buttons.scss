@@ -5,9 +5,11 @@
     background-color: $bg-primary-light;
     border: none;
     border-radius: 0.25rem;
+    color: $text-primary-dark;
     font-size: .75rem;
     font-weight: 500;
     padding: 0.5rem 1rem;
+    text-decoration: none;
     text-transform: uppercase;
 
     &:hover {
@@ -18,6 +20,19 @@
     &__primary {
         background-color: $bg-primary-dark;
         color: $text-primary-light;
+    }
+
+    &__container {
+        @include flex(center);
+
+        & >  .button {
+            text-align: center;
+            width: 100%;
+
+            @include desktop {
+                max-width: 700px;
+            }
+        }
     }
 
     @include desktop {
