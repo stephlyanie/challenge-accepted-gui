@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./CreationForm.scss";
+import "./Form.scss";
 import "../../styles/buttons.scss";
 import "../../styles/forms.scss";
 
@@ -24,14 +24,14 @@ function ChallengeForm({ challengeId, formRef, handleSubmit }) {
   useEffect(() => {
     if (challengeId) {
       axios
-      .get(`http://localhost:8080/challenges/${challengeId}`)
-      .then((res) => {
-        console.log(res.data)
-        setCategory(res.data[0].category)
-        setType(res.data[0].type)
-        setName(res.data[0].name)
-        setDescription(res.data[0].description)
-      })
+        .get(`http://localhost:8080/challenges/${challengeId}`)
+        .then((res) => {
+          console.log(res.data);
+          setCategory(res.data[0].category);
+          setType(res.data[0].type);
+          setName(res.data[0].name);
+          setDescription(res.data[0].description);
+        });
     }
   }, []);
 
@@ -86,7 +86,7 @@ function ChallengeForm({ challengeId, formRef, handleSubmit }) {
   const handleChangeCategory = (event) => {
     setCategory(event.target.value);
 
-    // Captures the category index from the event and sets the category id 
+    // Captures the category index from the event and sets the category id
     const categoryIndex = event.target.selectedIndex;
     setCategoryId(event.target.childNodes[categoryIndex].id);
   };
@@ -107,17 +107,42 @@ function ChallengeForm({ challengeId, formRef, handleSubmit }) {
     setDescription(event.target.value);
   };
 
+  // Resets the form when "Reset Form" clicked
+  const handleReset = () => {
+    // If there is a challengeId in URL
+    // Resets all fields
+    if (challengeId) {
+      axios
+        .get(`http://localhost:8080/challenges/${challengeId}`)
+        .then((res) => {
+          setName(res.data[0].name);
+          setCategory(res.data[0].category);
+          setType(res.data[0].type);
+          setDescription(res.data[0].description);
+        });
+    }
+
+    // If there is not a challengeId or a creationId in URL
+    // Clears all fields
+    else {
+      setName("");
+      setCategory("");
+      setType("");
+      setDescription("");
+    }
+  };
+
   // Renders to page
   return (
-    <form ref={formRef} className="create-form" onSubmit={handleSubmit}>
+    <form ref={formRef} className="create-form" onSubmit={handleSubmit} onReset={handleReset}>
       <section>
         {/* Default/Placeholder User */}
         <div className="create-form__field">
           <input
             type="text"
-            className="create-form__input"
+            className="create-form__input create-form__input--placeholder"
             name="username"
-            placeholder="Username"
+            placeholder="– username –"
             value="brains"
             id="DADDA3C9-C1F8-4BAF-AC74-05AABED44DD5"
           />
@@ -129,7 +154,7 @@ function ChallengeForm({ challengeId, formRef, handleSubmit }) {
             type="text"
             className="create-form__input"
             name="name"
-            placeholder="Name your challenge"
+            placeholder="– name your challenge –"
             onChange={handleChangeName}
             value={name}
           />
@@ -145,7 +170,7 @@ function ChallengeForm({ challengeId, formRef, handleSubmit }) {
             value={category}
           >
             <option className="create-form__placeholder" value="" disabled>
-              Pick a category for your challenge
+              – pick a category –
             </option>
             {categories.map((category) => (
               <option key={category.id} id={category.id} value={category.name}>
@@ -165,7 +190,7 @@ function ChallengeForm({ challengeId, formRef, handleSubmit }) {
             value={type}
           >
             <option className="create-form__placeholder" value="" disabled>
-              Pick a type for your challenge
+              – pick a type –
             </option>
             {types.map((type) => (
               <option key={type.id} id={type.id} value={type.name}>
@@ -180,18 +205,18 @@ function ChallengeForm({ challengeId, formRef, handleSubmit }) {
           <textarea
             className="create-form__textarea"
             name="description"
-            placeholder="Describe your challenge"
+            placeholder="– describe your challenge –"
             onChange={handleChangeDescription}
             value={description}
           ></textarea>
         </div>
       </section>
-      <section className="inventory-form__buttons">
-        <div className="inventory-form__buttons-container">
+      <section className="create-form__buttons">
+        <div className="create-form__buttons-container">
           {/* Reset Button */}
           <button
             type="reset"
-            className="button button__secondary inventory-form__button-cancel"
+            className="button button__secondary create-form__button-reset"
           >
             Reset Form
           </button>
@@ -199,8 +224,8 @@ function ChallengeForm({ challengeId, formRef, handleSubmit }) {
           {/* Submit Button */}
           <input
             type="submit"
-            className="button button__primary inventory-form__button-submit"
-            value="+ Add Item"
+            className="button button__primary create-form__button-submit"
+            value="Submit"
           />
         </div>
       </section>
