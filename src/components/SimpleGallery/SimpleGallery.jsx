@@ -31,7 +31,7 @@ function SimpleGallery({ galleryTitle, gallery, filterId }) {
                 className="gallery__name-link"
                 reloadDocument
               >
-                <h4 className="gallery__name">{item.creation_name}</h4>
+                <h4 className="gallery__name">{item.name}</h4>
               </Link>
 
               <p className="gallery__tag">{item.username}</p>

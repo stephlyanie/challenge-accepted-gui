@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 
 import ChallengesPage from "./pages/Challenges/ChallengesPage";
@@ -13,7 +13,6 @@ import SpecificChallengeCreationPage from "./pages/Creations/SpecificChallengeCr
 import EditCreationPage from "./pages/Creations/EditCreationPage";
 
 import ProfilePage from "./pages/Profile/ProfilePage";
-
 
 
 import './App.scss';
@@ -41,7 +40,7 @@ function App() {
           <Route path="/creations/:creationId/delete"></Route> {/* delete single creation if logged in */}
           
         {/* PROFILE ROUTES */}
-          <Route path="/profile"></Route> {/* redirect to profile/:id */}
+          <Route path="/profile" element={<Navigate to='/profile/DADDA3C9-C1F8-4BAF-AC74-05AABED44DD5' />}></Route> {/* redirect to profile/:id */}
           <Route path="/profile/:userId" element={<ProfilePage />}></Route> {/* user's profile when logged in */}
           <Route path="/profile/:userId/edit"></Route> {/* edit profile if logged in */}
           <Route path="/profile/:userId/delete"></Route> {/* delete profile if logged in */}
