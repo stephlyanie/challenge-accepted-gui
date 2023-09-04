@@ -20,8 +20,9 @@ input, select {
     font-family: 'Montserrat';
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder, textarea::placeholder, select:disabled {
     color: $text-primary-dark;
+    opacity: 1;
 }
 
 textarea {

@@ -17,13 +17,13 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
   const [categories, setCategories] = useState([]);
   const [types, setTypes] = useState([]);
 
-  // Store the challenge or category id  
+  // Store the challenge or category id
   const [getChallengeId, setGetChallengeId] = useState("");
   const [getCategoryId, setGetCategoryId] = useState("");
 
   // If there is a challenge Id in the URL:
-    // 1. Populate the challenge, category and type fields from database
-    // 2. Disable the form fields, so user cannot edit challenge, category or type
+  // 1. Populate the challenge, category and type fields from database
+  // 2. Disable the form fields, so user cannot edit challenge, category or type
   useEffect(() => {
     if (challengeId) {
       axios
@@ -33,8 +33,14 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
           setCategory(res.data[0].category);
           setType(res.data[0].type);
           document.getElementById("challenge").disabled = true;
+          document.getElementById("challenge").className =
+            "create-form__input create-form__select create-form__input--placeholder";
           document.getElementById("category").disabled = true;
+          document.getElementById("category").className =
+            "create-form__input create-form__select create-form__input--placeholder";
           document.getElementById("type").disabled = true;
+          document.getElementById("type").className =
+            "create-form__input create-form__select create-form__input--placeholder";
         })
         .catch((error) => {
           console.error(error);
@@ -43,11 +49,10 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
   }, []);
 
   // If there is a creationId in the URL
-    // 1. Set all form field values from database
+  // 1. Set all form field values from database
   useEffect(() => {
     if (creationId) {
-      axios
-      .get(`http://localhost:8080/creations/${creationId}`).then((res) => {
+      axios.get(`http://localhost:8080/creations/${creationId}`).then((res) => {
         setChallenge(res.data[0].challenge);
         setCategory(res.data[0].category);
         setType(res.data[0].type);
@@ -60,7 +65,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
   // Listen for change in challenge form field value
   useEffect(() => {
     // If no challenge value
-      // Set list of challenges to all challenges in database
+    // Set list of challenges to all challenges in database
     if (!challenge) {
       axios
         .get("http://localhost:8080/challenges")
@@ -73,7 +78,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
     }
 
     // Otherwise
-      // Set the category and type based on the challenge Id
+    // Set the category and type based on the challenge Id
     if (challenge) {
       axios
         .get(`http://localhost:8080/challenges/${getChallengeId}`)
@@ -101,8 +106,8 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
 
   // Listen for change in category form field value
   useEffect(() => {
-     // If no category value
-      // Set list of types from database
+    // If no category value
+    // Set list of types from database
     axios
       .get("http://localhost:8080/types/")
       .then((res) => {
@@ -113,7 +118,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
       });
 
     // Otherwise
-      // Set type based on the category Id
+    // Set type based on the category Id
     if (category) {
       axios
         .get(`http://localhost:8080/categories/${getCategoryId}/types`)
@@ -129,7 +134,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
   // Handles form field changes
   const handleChangeChallenge = (event) => {
     setChallenge(event.target.value);
-    
+
     // Captures the challenge index from the event and sets the challenge id
     const challengeIndex = event.target.selectedIndex;
     setGetChallengeId(event.target.childNodes[challengeIndex].id);
@@ -137,7 +142,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
 
   const handleChangeCategory = (event) => {
     setCategory(event.target.value);
-      
+
     // Captures the category index from the event and sets the category id
     const categoryIndex = event.target.selectedIndex;
     setGetCategoryId(event.target.childNodes[categoryIndex].id);
@@ -158,7 +163,6 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
   return (
     <form ref={formRef} className="create-form" onSubmit={handleSubmit}>
       <section className="create-form__container">
-
         {/* Default/Placeholder User */}
         <div className="create-form__field">
           <input
@@ -181,7 +185,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
             value={challenge}
           >
             <option value="" hidden selected disabled>
-            – pick a challenge –
+              – pick a challenge –
             </option>
             {challenges.map((challenge) => (
               <option
@@ -205,7 +209,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
             value={category}
           >
             <option className="create-form__placeholder" value="" disabled>
-            – pick a category –
+              – pick a category –
             </option>
             {categories.map((category) => (
               <option key={category.id} id={category.id} value={category.name}>
@@ -225,7 +229,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
             value={type}
           >
             <option className="create-form__placeholder" value="" disabled>
-            – pick a type –
+              – pick a type –
             </option>
             {types.map((type) => (
               <option key={type.id} id={type.id} value={type.name}>
