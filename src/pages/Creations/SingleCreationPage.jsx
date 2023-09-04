@@ -44,7 +44,7 @@ function SingleCreationPage() {
     return (
         <div>
             <DetailsCard data={data} />
-            {gallery.length > 0 ? <SimpleGallery galleryTitle={galleryTitle} gallery={gallery} /> : <p></p>}
+            {gallery.length > 1 ? <SimpleGallery galleryTitle={galleryTitle} gallery={gallery} /> : <p></p>}
         </div>
     )
 };

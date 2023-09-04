@@ -39,7 +39,7 @@ function SingleChallengePage() {
     return (
         <div>
             <DetailsCard data={data} />
-            <SimpleGallery galleryTitle={galleryTitle} gallery={gallery} />
+            {gallery.length > 1 ? <SimpleGallery galleryTitle={galleryTitle} gallery={gallery} /> : <p></p>}
         </div>
     )
 };
