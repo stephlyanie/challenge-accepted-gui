@@ -160,8 +160,66 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
     setDescription(event.target.value);
   };
 
+  // Resets the form when "Reset Form" clicked
+  const handleReset = () => {
+    // If there is a challengeId in URL
+    // Resets the challenge, category and type fields
+    // Clears name and description fields
+    if (challengeId) {
+      axios
+        .get(`http://localhost:8080/challenges/${challengeId}`)
+        .then((res) => {
+          setChallenge(res.data[0].name);
+          document.getElementById("challenge").disabled = true;
+          document.getElementById("challenge").className =
+            "create-form__input create-form__select create-form__input--placeholder";
+
+          setCategory(res.data[0].category);
+          document.getElementById("category").disabled = true;
+          document.getElementById("category").className =
+            "create-form__input create-form__select create-form__input--placeholder";
+
+          setType(res.data[0].type);
+          document.getElementById("type").disabled = true;
+          document.getElementById("type").className =
+            "create-form__input create-form__select create-form__input--placeholder";
+
+          setName("");
+          setDescription("");
+        });
+    }
+
+    // If there is a creationId in URL
+    // Resets all fields
+    else if (creationId) {
+      axios.get(`http://localhost:8080/creations/${creationId}`).then((res) => {
+        setChallenge(res.data[0].challenge);
+        setCategory(res.data[0].category);
+        setType(res.data[0].type);
+        setName(res.data[0].name);
+        setDescription(res.data[0].description);
+      });
+    }
+
+    // If there is not a challengeId or a creationId in URL
+    // Clears all fields
+    else {
+      setChallenge("");
+      setCategory("");
+      setType("");
+      setName("");
+      setDescription("");
+    }
+  };
+
   return (
-    <form ref={formRef} className="create-form" onSubmit={handleSubmit}>
+    <form
+      id="create-form"
+      ref={formRef}
+      className="create-form"
+      onSubmit={handleSubmit}
+      onReset={handleReset}
+    >
       <section className="create-form__container">
         {/* Default/Placeholder User */}
         <div className="create-form__field">
@@ -268,7 +326,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
             type="reset"
             className="button button__secondary create-form__button-cancel"
           >
-            Cancel
+            Reset Form
           </button>
           <input
             type="submit"
