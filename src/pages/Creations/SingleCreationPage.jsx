@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import DetailsCard from "../../components/DetailsCard/DetailsCard";
@@ -12,7 +12,6 @@ function SingleCreationPage() {
     const [userId, setUserId] = useState();
     const [gallery, setGallery] = useState([]);
     const [galleryTitle, setGalleryTitle] = useState(``); // Stores gallery title to pass to simple gallery component
-
 
     useEffect(() => {
         axios

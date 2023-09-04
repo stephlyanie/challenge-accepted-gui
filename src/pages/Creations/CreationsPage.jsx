@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import ItemCard from "../../components/ItemCard/ItemCard";
@@ -7,6 +6,7 @@ import ItemCard from "../../components/ItemCard/ItemCard";
 function CreationsPage() {
 
     const [data, setData] = useState([]);
+    const isChallenge = false;
 
     useEffect(() => {
         axios
@@ -22,7 +22,7 @@ function CreationsPage() {
 
     return (
         <div>
-            <ItemCard data={data} />
+            <ItemCard data={data} isChallenge={isChallenge} />
         </div>
     )
 };

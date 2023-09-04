@@ -3,17 +3,18 @@ import { Link } from "react-router-dom";
 import "./ItemCard.scss";
 import "../../styles/buttons.scss";
 
-function ItemCard({ data }) {
+function ItemCard({ data, isChallenge }) {
+
   return (
     <section>
-      {/* Maps through axios data to create item cards of each challenge*/}
+      {/* Maps through axios data to create item cards of each challenge or creation */}
       {data.map((item) => (
         <div key={item.id} className="item">
           <div className="item__creator">
             <div className="item__creator-container">
               <figure className="item__creator-image-container">
                 <img
-                  src={require("../../assets/images/placeholder-3.webp")}
+                  src={item.profile_pic}
                   className="item__creator-image"
                 />
               </figure>
@@ -41,10 +42,14 @@ function ItemCard({ data }) {
               </div>
               <p className="item__details-description">{item.description}</p>
               <div className="item__details-buttons">
-                <Link to={`/challenges/${item.id}/create`}>
+
+                {/* Sets link according to whether item card is used for a challenge or a creation */}
+                <Link to={isChallenge ? `/challenges/${item.id}/create` : `/creations/${item.challenge_id}/create`}>
                   <button className="button button__primary">Create</button>
                 </Link>
-                <Link to={`/challenges/${item.id}`}>
+
+                {/* Sets link according to whether item card is used for a challenge or a creation */}
+                <Link to={isChallenge ? `/challenges/${item.id}` : `/creations/${item.id}`}>
                   <button className="button">Learn</button>
                 </Link>
               </div>

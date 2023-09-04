@@ -7,6 +7,7 @@ import ItemCard from "../../components/ItemCard/ItemCard";
 function ChallengesPage() {
 
     const [data, setData] = useState([]);
+    const isChallenge = true;
 
     useEffect(() => {
         axios
@@ -22,7 +23,7 @@ function ChallengesPage() {
 
     return (
         <div>
-            <ItemCard data={data} />
+            <ItemCard data={data} isChallenge={isChallenge} />
         </div>
     )
 };
