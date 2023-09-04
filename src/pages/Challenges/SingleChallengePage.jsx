@@ -11,6 +11,7 @@ function SingleChallengePage() {
     const [data, setData] = useState([]);
     const [gallery, setGallery] = useState([]);
     const galleryTitle = "Related Creations";
+    const filterId = null;
 
     useEffect(() => {
         axios
@@ -39,7 +40,7 @@ function SingleChallengePage() {
     return (
         <div>
             <DetailsCard data={data} />
-            {gallery.length > 0 ? <SimpleGallery galleryTitle={galleryTitle} gallery={gallery} /> : null}
+            {gallery.length > 0 ? <SimpleGallery galleryTitle={galleryTitle} gallery={gallery} filterId={filterId} /> : null}
         </div>
     )
 };

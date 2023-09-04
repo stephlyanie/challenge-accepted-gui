@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
+import "./ProfilePage.scss";
+
 import ProfileCard from "../../components/ProfileCard/ProfileCard";
 import SimpleGallery from "../../components/SimpleGallery/SimpleGallery";
 
 function ProfilePage() {
 
     const { userId } = useParams(); // Pulls userId from URL
+    const filterId = !userId;
  
 //
 // Profile Component
@@ -98,11 +101,11 @@ function ProfilePage() {
             <div className="profile-gallery">
 
                 {/* Gallery Tab Buttons */}
-                <button id="creations" className="button" onClick={handleCreationsTab}>Creations</button>
-                <button id="challenges" className="button" onClick={handleChallengesTab}>Challenges</button>
+                <button id="creations" className="button profile-gallery__tab-button" onClick={handleCreationsTab}>Creations</button>
+                <button id="challenges" className="button profile-gallery__tab-button" onClick={handleChallengesTab}>Challenges</button>
                 
                 {/* Simple Gallery Component */}
-                {gallery.length > 1 ? <SimpleGallery galleryTitle={galleryTitle} gallery={gallery} /> : <p>None here yet.</p>}
+                {gallery.length > 1 ? <SimpleGallery galleryTitle={galleryTitle} gallery={gallery} filterId={filterId} /> : <p>None here yet.</p>}
             
             </div>
         </div>

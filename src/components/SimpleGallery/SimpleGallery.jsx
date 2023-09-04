@@ -3,11 +3,11 @@ import { Link, useParams } from "react-router-dom";
 import "./SimpleGallery.scss";
 import "../../styles/buttons.scss";
 
-function SimpleGallery({ galleryTitle, gallery }) {
-  // Captures id from url and stores in variable
-  const challengeId = useParams();
-  const creationId = useParams();
-  const userId = useParams();
+function SimpleGallery({ galleryTitle, gallery, filterId }) {
+
+    // console.log("filterId: " + filterId)
+    // const filteredGallery = gallery.filter((item) =>  filterId !== item.id)
+    // console.log("filteredGallery: " + filteredGallery)
 
   return (
     <section className="gallery">
@@ -15,8 +15,7 @@ function SimpleGallery({ galleryTitle, gallery }) {
       <div className="gallery__container">
         {gallery
           // Filters the featured item
-          .filter((item) => userId !== item.id || challengeId === item.id || creationId === item.id)
-
+          .filter((item) =>  filterId !== item.id)
           // Maps through items to create gallery cards
           .map((item) => (
             <div className="gallery__card">
@@ -26,10 +25,11 @@ function SimpleGallery({ galleryTitle, gallery }) {
               <Link
                 to={
                   item.challenge
-                    ? `/creations/${item.creation_id}`
-                    : `/challenges/${item.challenge_id}`
+                    ? `/creations/${item.id}`
+                    : `/challenges/${item.id}`
                 }
                 className="gallery__name-link"
+                reloadDocument
               >
                 <h4 className="gallery__name">{item.creation_name}</h4>
               </Link>
