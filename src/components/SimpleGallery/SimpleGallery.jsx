@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./SimpleGallery.scss";
 import "../../styles/buttons.scss";
 
@@ -9,7 +11,7 @@ function SimpleGallery({galleryTitle, gallery}) {
                 {gallery.map((item) => (
                     <div className="gallery__card">
                     <img src={item.image_url} className="gallery__image"/>
-                    <h4 className="gallery__name">{item.creation_name}</h4>
+                    <Link to={item.challenge ? `/creations/${item.creation_id}` : `/challenges/${item.challenge_id}`}><h4 className="gallery__name">{item.creation_name}</h4></Link>
                     <p className="gallery__tag">{item.username}</p>
                 </div>
                 ))}

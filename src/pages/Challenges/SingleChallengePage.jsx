@@ -28,6 +28,7 @@ function SingleChallengePage() {
         .get(`http://localhost:8080/challenges/${challengeId}/creations`)
         .then((res) => {
             setGallery(res.data);
+            console.log(res.data)
         })
         .catch((error) => {
             console.log(error);
