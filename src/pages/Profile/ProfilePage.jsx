@@ -36,8 +36,7 @@ function ProfilePage() {
 
     const [gallery, setGallery] = useState([]); // Stores creations or challenges data from single user and passes to simple gallery component
     const [galleryTitle, setGalleryTitle] = useState(null); // Stores gallery title to pass to simple gallery component
-    const [creationsTab, setCreationsTab] = useState(true); // Stores the gallery creations tab as true/false
-    const [challengesTab, setChallengesTab] = useState(false); // Stores the gallery challenges tab as true/false
+    const [activeTab, setActiveTab] = useState("creations"); // Stores the gallery creations tab as true/false
 
     
     // Calls database to set the simple gallery to challenges or creations data from user ID
@@ -48,7 +47,7 @@ function ProfilePage() {
         // If the challenges tab is true (challenges button clicked)
         // Sets the simple gallery data as list of challenges from the user
         // Does not set a gallery title 
-        if (challengesTab) {
+        if (activeTab === "challenges") {
             axios
             .get(`http://localhost:8080/users/${userId}/challenges`)
             .then((res) => {
@@ -62,6 +61,7 @@ function ProfilePage() {
         // On load and if the creations tab is true (creations button clicked)
         // Sets the simple gallery data as list of creations from the user
         // Does not set a gallery title 
+        if (activeTab === "creations") {
         axios
         .get(`http://localhost:8080/users/${userId}/creations`)
         .then((res) => {
@@ -70,23 +70,25 @@ function ProfilePage() {
         .catch((error) => {
             console.log(error);
         })
-    }, [creationsTab, challengesTab]);
+    }
+    }, [activeTab]);
 
-    // Button handler for creations tab
-    // Sets creationsTab to true on click
-    // Toggles ChallengesTab to false
+    const [creationsClass, setCreationsClass] = useState("button profile-gallery__tab-button button__primary");
+    const [challengesClass, setChallengesClass] = useState("button profile-gallery__tab-button");
+
+    // Button handler sets active tab to creations 
     const handleCreationsTab = () => {
-        setCreationsTab(true);
-        setChallengesTab(false);
+        setActiveTab("creations");
+        setCreationsClass("button profile-gallery__tab-button button__primary");
+        setChallengesClass("button profile-gallery__tab-button");
     }
 
 
-    // Button handler for challenges tab
-    // Sets challengesTab to true on click
-    // Toggles CreationsTab to false
+    // Button handler sets active tab to challenges
     const handleChallengesTab = () => {
-        setCreationsTab(false);
-        setChallengesTab(true);
+        setActiveTab("challenges");
+        setCreationsClass("button profile-gallery__tab-button");
+        setChallengesClass("button profile-gallery__tab-button button__primary");
     }
 
 //
@@ -101,11 +103,11 @@ function ProfilePage() {
             <div className="profile-gallery">
 
                 {/* Gallery Tab Buttons */}
-                <button id="creations" className="button profile-gallery__tab-button" onClick={handleCreationsTab}>Creations</button>
-                <button id="challenges" className="button profile-gallery__tab-button" onClick={handleChallengesTab}>Challenges</button>
+                <button id="creations" className={creationsClass} onClick={handleCreationsTab}>Creations</button>
+                <button id="challenges" className={challengesClass} onClick={handleChallengesTab}>Challenges</button>
                 
                 {/* Simple Gallery Component */}
-                {gallery.length > 1 ? <SimpleGallery galleryTitle={galleryTitle} gallery={gallery} filterId={filterId} /> : <p>None here yet.</p>}
+                {gallery.length > 1 ? <SimpleGallery galleryTitle={galleryTitle} gallery={gallery} filterId={filterId} /> : <p className="profile-gallery__none">None here yet.</p>}
             
             </div>
         </div>

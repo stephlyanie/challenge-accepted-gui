@@ -1,4 +1,11 @@
 .profile-gallery {
     margin: 2rem 0 0;
 
+    &__tab-button {
+        margin-right: 0.5rem;
+    }
+
+    &__none {
+        margin: 1.5rem 0;
+    }
 }
