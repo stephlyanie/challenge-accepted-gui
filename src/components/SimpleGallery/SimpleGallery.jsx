@@ -7,6 +7,7 @@ function SimpleGallery({ galleryTitle, gallery }) {
   // Captures id from url and stores in variable
   const challengeId = useParams();
   const creationId = useParams();
+  const userId = useParams();
 
   return (
     <section className="gallery">
@@ -14,7 +15,7 @@ function SimpleGallery({ galleryTitle, gallery }) {
       <div className="gallery__container">
         {gallery
           // Filters the featured item
-          .filter((item) => challengeId === item.id || creationId === item.id)
+          .filter((item) => userId !== item.id || challengeId === item.id || creationId === item.id)
 
           // Maps through items to create gallery cards
           .map((item) => (
@@ -28,6 +29,7 @@ function SimpleGallery({ galleryTitle, gallery }) {
                     ? `/creations/${item.creation_id}`
                     : `/challenges/${item.challenge_id}`
                 }
+                className="gallery__name-link"
               >
                 <h4 className="gallery__name">{item.creation_name}</h4>
               </Link>

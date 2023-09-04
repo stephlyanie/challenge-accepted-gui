@@ -44,7 +44,7 @@ function ProfilePage() {
 
         // If the challenges tab is true (challenges button clicked)
         // Sets the simple gallery data as list of challenges from the user
-        // Set gallery title to creations
+        // Set gallery title to challenges
 
         if (challengesTab) {
             axios
@@ -108,7 +108,7 @@ function ProfilePage() {
                 <button id="challenges" onClick={handleChallengesTab}>Challenges</button>
                 
                 {/* Simple Gallery Component */}
-                {gallery.length > 0 ? <SimpleGallery galleryTitle={galleryTitle} gallery={gallery} /> : <p>None here yet.</p>}
+                {gallery.length > 1 ? <SimpleGallery galleryTitle={galleryTitle} gallery={gallery} /> : <p>None here yet.</p>}
             
             </div>
         </div>
