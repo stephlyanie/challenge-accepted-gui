@@ -12,10 +12,8 @@ function Header() {
       </section>
       <section className="site-header__nav">
         <nav className="site-header__nav-links">
-          <ul className="site-header__nav-list">
             <NavLink
               to="/challenges"
-              // Sets className of challenges nav button if isChallenges true/false
               className={({ isActive, isPending }) =>
                 isPending
                   ? "site-header__nav-link"
@@ -23,14 +21,11 @@ function Header() {
                   ? "site-header__nav-link site-header__nav-link--active"
                   : "site-header__nav-link"
               }
-
-              // onClick={handleChallengesClick}
             >
-              <li>Challenges</li>
+              Challenges
             </NavLink>
             <NavLink
               to="/creations"
-              // Sets className of creations nav button if isCreations true/false
               className={({ isActive, isPending }) =>
                 isPending
                   ? "site-header__nav-link"
@@ -38,13 +33,11 @@ function Header() {
                   ? "site-header__nav-link site-header__nav-link--active"
                   : "site-header__nav-link"
               }
-              // onClick={handleCreationsClick}
             >
-              <li>Creations</li>
+              Creations
             </NavLink>
             <NavLink
               to="/profile"
-              // Sets className of profile nav button if isProfile true/false
               className={({ isActive, isPending }) =>
                 isPending
                   ? "site-header__nav-link"
@@ -52,13 +45,11 @@ function Header() {
                   ? "site-header__nav-link site-header__nav-link--active"
                   : "site-header__nav-link"
               }
-              // onClick={handleProfileClick}
             >
-              <li>Profile</li>
+              Profile
             </NavLink>
             <NavLink
               to="/create"
-              // Sets className of create nav button if isCreate true/false
               className={({ isActive, isPending }) =>
                 isPending
                   ? "site-header__nav-link"
@@ -66,11 +57,9 @@ function Header() {
                   ? "site-header__nav-link site-header__nav-link--active"
                   : "site-header__nav-link"
               }
-              // onClick={handleCreateClick}
             >
-              <li>Create Something</li>
+              Create Something
             </NavLink>
-          </ul>
         </nav>
         <section className="site-header__profile"></section>
       </section>
