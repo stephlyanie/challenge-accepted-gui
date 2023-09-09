@@ -22,8 +22,8 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
   const [getCategoryId, setGetCategoryId] = useState("");
 
   // If there is a challenge Id in the URL:
-  // 1. Populate the challenge, category and type fields from database
-  // 2. Disable the form fields, so user cannot edit challenge, category or type
+  // Populate the challenge, category and type fields from database
+  // Disable the form fields, so user cannot edit challenge, category or type
   useEffect(() => {
     if (challengeId) {
       axios
@@ -49,7 +49,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
   }, []);
 
   // If there is a creationId in the URL
-  // 1. Set all form field values from database
+  // Set all form field values from database
   useEffect(() => {
     if (creationId) {
       axios.get(`http://localhost:8080/creations/${creationId}`).then((res) => {
@@ -78,18 +78,23 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
     }
 
     // Otherwise
-    // Set the category and type based on the challenge Id
+    // Set the category based on the challenge Id
+    // If no type already, set the type based on the challenge Id
     if (challenge) {
       axios
         .get(`http://localhost:8080/challenges/${getChallengeId}`)
         .then((res) => {
           setCategory(res.data[0].category);
-          setType(res.data[0].type);
+
+          if (!type) {
+            setType(res.data[0].type);
+          }
         })
         .catch((error) => {
           console.log(error);
         });
     }
+
   }, [challenge]);
 
   // Create dropdown values for catetories

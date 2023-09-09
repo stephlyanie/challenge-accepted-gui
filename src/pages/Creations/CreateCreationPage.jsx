@@ -7,6 +7,7 @@ import CreationForm from "../../components/Forms/CreationForm";
 
 function CreateCreationPage() {
     const formRef = useRef();
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -20,6 +21,10 @@ function CreateCreationPage() {
             description: description.value,
             created_by_id: username.id,
             challenge_id: event.target.challenge.childNodes[challengeIndex].id
+        })
+        .then((res) => {
+            navigate(`/creations/${res.data}`)
+            navigate(0)
         })
         .catch((error) => (
             console.error(error)

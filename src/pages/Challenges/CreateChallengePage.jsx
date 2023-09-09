@@ -7,11 +7,12 @@ import ChallengeForm from "../../components/Forms/ChallengeForm";
 
 function CreateChallengePage() {
     const formRef = useRef();
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const { name, description, username, challenge } = formRef.current;
+        const { name, description, username } = formRef.current;
         const typeIndex = event.target.type.selectedIndex;
         
         axios
@@ -20,6 +21,10 @@ function CreateChallengePage() {
             description: description.value,
             created_by_id: username.id,
             type_id: event.target.type.childNodes[typeIndex].id
+        })
+        .then((res) => {
+            navigate(`/challenges/${res.data}`)
+            navigate(0)
         })
         .catch((error) => (
             console.error(error)

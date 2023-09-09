@@ -2,8 +2,13 @@
 @use "../../styles/variables" as *;
 
 .create-page {
+    @include flex;
+    flex-direction: column;
+
     @include tablet {
-        @include flex(space-between, stretch);
+        align-items: stretch;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     @include desktop {

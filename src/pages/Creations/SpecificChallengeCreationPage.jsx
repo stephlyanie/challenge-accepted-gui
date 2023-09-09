@@ -1,11 +1,12 @@
 import { useRef } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 import CreationForm from "../../components/Forms/CreationForm";
 
 function SpecificChallengeCreationPage() {
     const formRef = useRef();
+    const navigate = useNavigate();
     const { challengeId } = useParams();
 
     const handleSubmit = (event) => {
@@ -19,6 +20,10 @@ function SpecificChallengeCreationPage() {
             description: description.value,
             created_by_id: username.id,
             challenge_id: challengeId
+        })
+        .then((res) => {
+            navigate(`/creations/${res.data}`)
+            navigate(0)
         })
         .catch((error) => (
             console.error(error)
