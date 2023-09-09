@@ -14,6 +14,9 @@ import EditCreationPage from "./pages/Creations/EditCreationPage";
 
 import ProfilePage from "./pages/Profile/ProfilePage";
 
+import CreatePage from "./pages/CreatePage/CreatePage";
+
+
 
 import './App.scss';
 
@@ -48,7 +51,8 @@ function App() {
           <Route path="/profile/:userId/creations"></Route> {/* list of all creations associated with user's profile*/}
           
         {/* CREATE ROUTE */}
-          <Route path="/create/challenge" element={<CreateChallengePage />}></Route>
+          <Route path="/create" element={<CreatePage />}></Route>
+         <Route path="/create/challenge" element={<CreateChallengePage />}></Route>
           <Route path="/create/creation" element={<CreateCreationPage />}></Route>
         
         {/* SIGN UP ROUTE */}

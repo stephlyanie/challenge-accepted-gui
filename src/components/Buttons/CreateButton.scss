@@ -1,0 +1,35 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.create-button {
+    border-radius: 1.25rem;
+    margin: 1rem 0;
+    padding: 4rem 3rem;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+
+    &__challenge {
+        background-color: $bg-primary-dark;
+        color: $text-primary-light;
+
+        &:hover {
+            box-shadow: .5rem .5rem $bg-secondary-light;
+        }
+
+    }
+
+    &__creation {
+        background-color: $bg-secondary-light;
+        color: $text-primary-dark;
+
+        &:hover {
+            box-shadow: .5rem .5rem $bg-primary-dark;
+        }
+    }   
+
+    @include tablet {
+        padding: 6rem 3rem;
+        width: 49%;
+    }
+}

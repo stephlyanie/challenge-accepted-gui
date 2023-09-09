@@ -1,0 +1,13 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.create-page {
+    @include tablet {
+        @include flex(space-between, stretch);
+    }
+
+    @include desktop {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+}
