@@ -32,7 +32,9 @@ function EditCreationPage() {
   };
 
   // Resets the form when "Reset Form" clicked
-  const handleReset = () => {
+  const handleReset = (event) => {
+    event.preventDefault();
+
     // Resets all fields
     axios.get(`http://localhost:8080/creations/${creationId}`).then((res) => {
       setChallenge(res.data[0].challenge);

@@ -230,7 +230,7 @@ function CreationForm({
             onChange={handleChangeCategory}
             value={category}
           >
-            <option className="create-form__placeholder" value="" hidden defaultValue>
+            <option className="create-form__placeholder" value="" hidden>
               – pick a category –
             </option>
             {categories.map((category) => (
@@ -250,7 +250,7 @@ function CreationForm({
             onChange={handleChangeType}
             value={type}
           >
-            <option className="create-form__placeholder" value="" hidden defaultValue>
+            <option className="create-form__placeholder" value="" hidden>
               – pick a type –
             </option>
             {types.map((type) => (

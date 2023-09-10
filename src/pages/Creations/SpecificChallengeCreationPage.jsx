@@ -36,28 +36,11 @@ function SpecificChallengeCreationPage() {
   };
 
   // Resets the form when "Reset Form" clicked
-  const handleReset = () => {
-    // Resets the challenge, category and type fields
-    // Clears name and description fields
-    axios.get(`http://localhost:8080/challenges/${challengeId}`).then((res) => {
-      setChallenge(res.data[0].name);
-      document.getElementById("challenge").disabled = true;
-      document.getElementById("challenge").className =
-        "create-form__input create-form__select create-form__input--placeholder";
-
-      setCategory(res.data[0].category);
-      document.getElementById("category").disabled = true;
-      document.getElementById("category").className =
-        "create-form__input create-form__select create-form__input--placeholder";
-
-      setType(res.data[0].type);
-      document.getElementById("type").disabled = true;
-      document.getElementById("type").className =
-        "create-form__input create-form__select create-form__input--placeholder";
-
-      setName("");
-      setDescription("");
-    });
+  const handleReset = (event) => {
+    event.preventDefault();
+    
+    setName("");
+    setDescription("");
   };
 
   return (

@@ -6,7 +6,6 @@ import ChallengeForm from "../../components/Forms/ChallengeForm";
 
 function EditChallengePage() {
   // Create variables for form field values
-  const [challenge, setChallenge] = useState("");
   const [category, setCategory] = useState("");
   const [type, setType] = useState("");
   const [name, setName] = useState("");
@@ -32,33 +31,20 @@ function EditChallengePage() {
   };
 
   // Resets the form when "Reset Form" clicked
-  const handleReset = () => {
+  const handleReset = (event) => {
+    event.preventDefault();
+
     axios.get(`http://localhost:8080/challenges/${challengeId}`).then((res) => {
-      setChallenge(res.data[0].name);
-      document.getElementById("challenge").disabled = true;
-      document.getElementById("challenge").className =
-        "create-form__input create-form__select create-form__input--placeholder";
-
+      setName(res.data[0].name);
       setCategory(res.data[0].category);
-      document.getElementById("category").disabled = true;
-      document.getElementById("category").className =
-        "create-form__input create-form__select create-form__input--placeholder";
-
       setType(res.data[0].type);
-      document.getElementById("type").disabled = true;
-      document.getElementById("type").className =
-        "create-form__input create-form__select create-form__input--placeholder";
-
-      setName("");
-      setDescription("");
+      setDescription(res.data[0].description);
     });
   };
 
   return (
     <div>
       <ChallengeForm
-        challenge={challenge}
-        setChallenge={setChallenge}
         category={category}
         setCategory={setCategory}
         type={type}

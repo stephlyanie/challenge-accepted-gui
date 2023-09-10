@@ -4,12 +4,20 @@ import "./Form.scss";
 import "../../styles/buttons.scss";
 import "../../styles/forms.scss";
 
-function ChallengeForm({ challengeId, formRef, handleSubmit }) {
-  // Create variables for form field values
-  const [category, setCategory] = useState("");
-  const [type, setType] = useState("");
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+function ChallengeForm({
+  category,
+  setCategory,
+  type,
+  setType,
+  name,
+  setName,
+  description,
+  setDescription,
+  challengeId,
+  formRef,
+  handleSubmit,
+  handleReset,
+}) {
 
   // Store dropdown values for challenges, catetories and types select form fields
   const [categories, setCategories] = useState([]);
@@ -26,7 +34,6 @@ function ChallengeForm({ challengeId, formRef, handleSubmit }) {
       axios
         .get(`http://localhost:8080/challenges/${challengeId}`)
         .then((res) => {
-          console.log(res.data);
           setCategory(res.data[0].category);
           setType(res.data[0].type);
           setName(res.data[0].name);
@@ -107,34 +114,14 @@ function ChallengeForm({ challengeId, formRef, handleSubmit }) {
     setDescription(event.target.value);
   };
 
-  // Resets the form when "Reset Form" clicked
-  const handleReset = () => {
-    // If there is a challengeId in URL
-    // Resets all fields
-    if (challengeId) {
-      axios
-        .get(`http://localhost:8080/challenges/${challengeId}`)
-        .then((res) => {
-          setName(res.data[0].name);
-          setCategory(res.data[0].category);
-          setType(res.data[0].type);
-          setDescription(res.data[0].description);
-        });
-    }
-
-    // If there is not a challengeId or a creationId in URL
-    // Clears all fields
-    else {
-      setName("");
-      setCategory("");
-      setType("");
-      setDescription("");
-    }
-  };
-
   // Renders to page
   return (
-    <form ref={formRef} className="create-form" onSubmit={handleSubmit} onReset={handleReset}>
+    <form
+      ref={formRef}
+      className="create-form"
+      onSubmit={handleSubmit}
+      onReset={handleReset}
+    >
       <section>
         {/* Default/Placeholder User */}
         <div className="create-form__field">
@@ -169,7 +156,12 @@ function ChallengeForm({ challengeId, formRef, handleSubmit }) {
             onChange={handleChangeCategory}
             value={category}
           >
-            <option className="create-form__placeholder" value="" hidden defaultValue>
+            <option
+              className="create-form__placeholder"
+              value=""
+              hidden
+              defaultValue
+            >
               – pick a category –
             </option>
             {categories.map((category) => (
@@ -189,7 +181,12 @@ function ChallengeForm({ challengeId, formRef, handleSubmit }) {
             onChange={handleChangeType}
             value={type}
           >
-            <option className="create-form__placeholder" value="" hidden defaultValue>
+            <option
+              className="create-form__placeholder"
+              value=""
+              hidden
+              defaultValue
+            >
               – pick a type –
             </option>
             {types.map((type) => (
