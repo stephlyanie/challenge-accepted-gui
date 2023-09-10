@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios"; 
 import { ReactComponent as Edit } from "../../assets/images/pencil.svg";
 import { ReactComponent as Delete } from "../../assets/images/trash.svg";
 
@@ -6,8 +7,29 @@ import "./DetailsCard.scss";
 import "../../styles/buttons.scss";
 
 function DetailsCard({ data }) {
-  const handleDelete = () => {
+  const navigate = useNavigate();
 
+  const handleDelete = () => {
+    if (data.challenge) {
+        axios
+        .delete(`http://localhost:8080/creations/${data.id}`)
+        .then(() => {
+          setTimeout(() => {navigate("/creations")}, 1500)
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+    }
+    if (!data.challenge) {
+      axios
+      .delete(`http://localhost:8080/challenges/${data.id}`)
+      .then(() => {
+        setTimeout(() => {navigate("/challenges")}, 1500)
+      })
+      .catch((error) => {
+          console.log(error);
+      })
+    }
   };
 
   return (
