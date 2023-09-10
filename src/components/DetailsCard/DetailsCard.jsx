@@ -1,19 +1,35 @@
 import { Link } from "react-router-dom";
+import { ReactComponent as Edit } from "../../assets/images/pencil.svg";
+import { ReactComponent as Delete } from "../../assets/images/trash.svg";
 
 import "./DetailsCard.scss";
 import "../../styles/buttons.scss";
 
 function DetailsCard({ data }) {
+  const handleDelete = () => {
+
+  };
+
   return (
     <section className="details">
       <div className="details__creator">
-        <figure className="details__creator-image-container">
-          <img
-            src={data.profile_pic}
-            className="details__creator-image"
-          />
-        </figure>
-        <p className="details__creator-name">{data.username}</p>
+        <div className="details__profile">
+          <figure className="details__creator-image-container">
+            <img
+              src={data.profile_pic}
+              className="details__creator-image"
+            />
+          </figure>
+          <p className="details__creator-name">{data.username}</p>
+        </div>
+        <div className="details__actions">
+          <Link to="edit">
+            <Edit className="details__actions-edit" />
+          </Link>
+          <button className="button__icon" onClick={handleDelete}>
+            <Delete className="details__actions-delete"/>
+          </button>
+        </div>
       </div>
       <h2 className="details__title">{data.name}</h2>
       <div className="details__tags">

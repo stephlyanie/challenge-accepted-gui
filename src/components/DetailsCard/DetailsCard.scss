@@ -3,6 +3,10 @@
 
 .details {
     &__creator {
+        @include flex(space-between, center);
+    }
+
+    &__profile {
         @include flex(flex-start, center);
         margin: 1rem 0;
 
@@ -27,6 +31,15 @@
         @include desktop {
             font-size: 1rem;
         }
+    }
+
+    &__actions {
+        @include flex(flex-end, center);
+    }
+
+    &__actions-edit, &__actions-delete {
+        fill: $text-secondary-dark;
+        margin-left: .75rem;
     }
 
     &__title {
