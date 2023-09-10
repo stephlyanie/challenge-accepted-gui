@@ -1,6 +1,4 @@
 // TO DO
-// Add edit buttons
-// Add delete buttons
 // Create/update logo
 // Add search bar mockup
 // Add burger menu
