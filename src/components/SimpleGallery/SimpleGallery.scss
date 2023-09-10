@@ -37,7 +37,12 @@
 
         @include tablet {
             width: 32%;
-            margin: .125rem 1%;
+            margin: .125rem 0.66%;
+        }
+
+        @include desktop {
+            width: 24%;
+            margin: .125rem 0.5%;
         }
     }
 
