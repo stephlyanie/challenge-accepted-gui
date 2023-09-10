@@ -169,7 +169,7 @@ function ChallengeForm({ challengeId, formRef, handleSubmit }) {
             onChange={handleChangeCategory}
             value={category}
           >
-            <option className="create-form__placeholder" value="" disabled>
+            <option className="create-form__placeholder" value="" hidden defaultValue>
               – pick a category –
             </option>
             {categories.map((category) => (
@@ -189,7 +189,7 @@ function ChallengeForm({ challengeId, formRef, handleSubmit }) {
             onChange={handleChangeType}
             value={type}
           >
-            <option className="create-form__placeholder" value="" disabled>
+            <option className="create-form__placeholder" value="" hidden defaultValue>
               – pick a type –
             </option>
             {types.map((type) => (

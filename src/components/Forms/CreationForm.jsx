@@ -1,16 +1,27 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./Form.scss";
 import "../../styles/buttons.scss";
 import "../../styles/forms.scss";
 
-function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
-  // Create variables for form field values
-  const [challenge, setChallenge] = useState("");
-  const [category, setCategory] = useState("");
-  const [type, setType] = useState("");
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+function CreationForm({
+  challenge,
+  setChallenge,
+  category,
+  setCategory,
+  type,
+  setType,
+  name,
+  setName,
+  description,
+  setDescription,
+  creationId,
+  challengeId,
+  formRef,
+  handleSubmit,
+  handleReset,
+}) {
 
   // Store dropdown values for challenges, catetories and types select form fields
   const [challenges, setChallenges] = useState([]);
@@ -94,7 +105,6 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
           console.log(error);
         });
     }
-
   }, [challenge]);
 
   // Create dropdown values for catetories
@@ -165,58 +175,6 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
     setDescription(event.target.value);
   };
 
-  // Resets the form when "Reset Form" clicked
-  const handleReset = () => {
-    // If there is a challengeId in URL
-    // Resets the challenge, category and type fields
-    // Clears name and description fields
-    if (challengeId) {
-      axios
-        .get(`http://localhost:8080/challenges/${challengeId}`)
-        .then((res) => {
-          setChallenge(res.data[0].name);
-          document.getElementById("challenge").disabled = true;
-          document.getElementById("challenge").className =
-            "create-form__input create-form__select create-form__input--placeholder";
-
-          setCategory(res.data[0].category);
-          document.getElementById("category").disabled = true;
-          document.getElementById("category").className =
-            "create-form__input create-form__select create-form__input--placeholder";
-
-          setType(res.data[0].type);
-          document.getElementById("type").disabled = true;
-          document.getElementById("type").className =
-            "create-form__input create-form__select create-form__input--placeholder";
-
-          setName("");
-          setDescription("");
-        });
-    }
-
-    // If there is a creationId in URL
-    // Resets all fields
-    else if (creationId) {
-      axios.get(`http://localhost:8080/creations/${creationId}`).then((res) => {
-        setChallenge(res.data[0].challenge);
-        setCategory(res.data[0].category);
-        setType(res.data[0].type);
-        setName(res.data[0].name);
-        setDescription(res.data[0].description);
-      });
-    }
-
-    // If there is not a challengeId or a creationId in URL
-    // Clears all fields
-    else {
-      setChallenge("");
-      setCategory("");
-      setType("");
-      setName("");
-      setDescription("");
-    }
-  };
-
   // Renders to page
   return (
     <form
@@ -248,7 +206,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
             onChange={handleChangeChallenge}
             value={challenge}
           >
-            <option value="" hidden selected disabled>
+            <option value="" hidden defaultValue>
               – pick a challenge –
             </option>
             {challenges.map((challenge) => (
@@ -272,7 +230,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
             onChange={handleChangeCategory}
             value={category}
           >
-            <option className="create-form__placeholder" value="" disabled>
+            <option className="create-form__placeholder" value="" hidden defaultValue>
               – pick a category –
             </option>
             {categories.map((category) => (
@@ -292,7 +250,7 @@ function CreationForm({ creationId, challengeId, formRef, handleSubmit }) {
             onChange={handleChangeType}
             value={type}
           >
-            <option className="create-form__placeholder" value="" disabled>
+            <option className="create-form__placeholder" value="" hidden defaultValue>
               – pick a type –
             </option>
             {types.map((type) => (
