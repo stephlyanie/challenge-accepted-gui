@@ -34,7 +34,13 @@ function EditCreationPage() {
         created_by_id: username.id,
         challenge_id: event.target.challenge.childNodes[challengeIndex].id,
       })
-      .catch((error) => console.error(error));
+      .then(() => {
+        window.alert("Creation edited successfully.")
+      })
+      .catch((error) => {
+        window.alert("Error editing creation.")
+        console.error(error)
+      });
   };
 
   // Resets the form from database when "Reset Form" clicked
@@ -48,7 +54,14 @@ function EditCreationPage() {
       setType(res.data[0].type);
       setName(res.data[0].name);
       setDescription(res.data[0].description);
-    });
+    })
+    .then(() => {
+      window.alert("Form reset successfully.")
+    })
+    .catch((error) => {
+      window.alert("Error resetting form.")
+      console.error(error)
+    });;
   };
 
   // Renders to page
