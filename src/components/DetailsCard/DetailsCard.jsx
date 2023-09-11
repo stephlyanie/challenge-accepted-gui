@@ -52,7 +52,7 @@ function DetailsCard({ data }) {
       <div className="details__creator">
         <div className="details__profile">
           <figure className="details__profile-image-container">
-            <img src={data.profile_pic} className="details__profile-image" />
+            <img src={data.profile_pic} alt={data.username} className="details__profile-image" />
           </figure>
           <p className="details__profile-name">{data.username}</p>
         </div>
@@ -79,7 +79,7 @@ function DetailsCard({ data }) {
         <p className="details__tag">{data.type}</p>
       </div>
       <div className="details__image-container">
-        <img src={data.image_url} className="details__image" />
+        <img src={data.image_url} alt={data.name} className="details__image" />
       </div>
       <div className="details__container">
         <p className="details__description">{data.description}</p>

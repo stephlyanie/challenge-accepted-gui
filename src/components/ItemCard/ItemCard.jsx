@@ -14,13 +14,13 @@ function ItemCard({ data, isChallenge }) {
           <div className="item__creator">
             <div className="item__creator-container">
               <figure className="item__creator-image-container">
-                <img src={item.profile_pic} className="item__creator-image" />
+                <img src={item.profile_pic} alt={item.username} className="item__creator-image" />
               </figure>
               <p className="item__creator-name">{item.username}</p>
             </div>
           </div>
           <div className="item__container">
-            <img src={item.image_url} className="item__image" />
+            <img src={item.image_url} alt={data.name} className="item__image" />
 
             <div className="item__details">
               <h3 className="item__details-title">{item.name}</h3>

@@ -10,7 +10,7 @@ function ProfileCard({ data }) {
         {data.first_name} {data.last_name}
       </h3>
       <p className="profile__username">{data.username}</p>
-      <img src={data.image_url} className="profile__image" />
+      <img src={data.image_url} alt={data.username} className="profile__image" />
     </section>
   );
 }

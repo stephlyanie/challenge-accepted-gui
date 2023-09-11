@@ -16,7 +16,7 @@ function SimpleGallery({ galleryTitle, gallery, filterId }) {
           // Maps through items to create gallery cards
           .map((item) => (
             <div className="gallery__card">
-              <img src={item.image_url} className="gallery__image" />
+              <img src={item.image_url} alt={item.name} className="gallery__image" />
 
               {/* Sets the url based on whether it's a creation or a challenge (challenges will not have item.challenge) */}
               <Link
