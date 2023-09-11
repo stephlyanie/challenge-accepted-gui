@@ -50,9 +50,4 @@
             margin-right: 1rem;
         }
     }
-
-    @include tablet {
-        margin: 4rem auto 1rem;
-        max-width: 700px;
-    }
 }

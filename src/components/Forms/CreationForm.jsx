@@ -184,6 +184,11 @@ function CreationForm({
       onSubmit={handleSubmit}
       onReset={handleReset}
     >
+
+      {/* Sets form title and description based on type of form on the page */}
+      <h2 className="create-form__title">{challengeId ? `Make the ${challenge} Challenge` : creationId ? "Edit your Creation" : "Make a Creation"}</h2>
+      <p className="create-form__description">{challengeId || creationId ? "" : "Respond to a challenge by creating something."}</p>
+
       <section className="create-form__container">
         {/* Default/Placeholder User */}
         <div className="create-form__field">

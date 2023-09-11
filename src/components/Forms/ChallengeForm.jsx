@@ -122,6 +122,11 @@ function ChallengeForm({
       onSubmit={handleSubmit}
       onReset={handleReset}
     >
+
+      {/* Sets form title and description based on type of form on the page */}
+      <h2 className="create-form__title">{challengeId ? `Edit your Challenge` : "Post a Challenge"}</h2>
+      <p className="create-form__description">{challengeId ? "" : "Challenge your fellow creatives with your own project for them to respond to."}</p>
+
       <section>
         {/* Default/Placeholder User */}
         <div className="create-form__field">
