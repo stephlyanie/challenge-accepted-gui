@@ -58,7 +58,7 @@ function SingleCreationPage() {
       <DetailsCard data={data} />
 
       {/* If there other creations by same user, show a gallery */}
-      {gallery.length > 0 ? (
+      {gallery.length > 1 ? (
         <SimpleGallery
           galleryTitle={galleryTitle}
           gallery={gallery}
