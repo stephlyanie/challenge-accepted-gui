@@ -33,7 +33,13 @@ function EditChallengePage() {
         created_by_id: username.id,
         type_id: event.target.type.childNodes[typeIndex].id,
       })
-      .catch((error) => console.error(error));
+      .then(() => {
+        window.alert("Challenge edited successfully.")
+      })
+      .catch((error) => {
+        window.alert("Error editing challenge.")
+        console.error(error)
+      });
   };
 
   // Resets the form from database when "Reset Form" clicked
@@ -45,6 +51,13 @@ function EditChallengePage() {
       setCategory(res.data[0].category);
       setType(res.data[0].type);
       setDescription(res.data[0].description);
+    })
+    .then(() => {
+      window.alert("Form reset successfully.")
+    })
+    .catch((error) => {
+      window.alert("Error resetting form.")
+      console.error(error)
     });
   };
 
