@@ -1,6 +1,6 @@
 import "./Footer.scss";
 
-// Header component for all pages
+// Footer component for all pages
 function Footer() {
     return (
         <footer className="site-footer">
