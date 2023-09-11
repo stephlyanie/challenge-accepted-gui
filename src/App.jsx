@@ -24,45 +24,50 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <main>
-        <Routes>
-        {/* ROOT ROUTE */}
-          <Route path="/" element={<ChallengesPage />}></Route>
+      <div className="body-container">
+        <aside>
 
-        {/* CHALLENGES ROUTES */}
-          <Route path="/challenges" element={<ChallengesPage />}></Route> {/* list of all challenges */}
-          <Route path="/challenges/:challengeId" element={<SingleChallengePage />}></Route> {/* single challenge */}
-          <Route path="/challenges/:challengeId/edit" element={<EditChallengePage />}></Route> {/* edit single challenge if logged in */}
-          <Route path="/challenges/:challengeId/delete"></Route> {/* delete single challenge if logged in */}
-          <Route path="/challenges/:challengeId/create" element={<SpecificChallengeCreationPage />} ></Route> {/* create a specific challenge */}
-      
-        {/* CREATIONS ROUTES */}
-          <Route path="/creations" element={<CreationsPage />}></Route> {/* list of all creations */}
-          <Route path="/creations/:creationId" element={<SingleCreationPage />}></Route> {/* single creation */}
-          <Route path="/creations/:creationId/edit" element={<EditCreationPage />}></Route> {/* edit single creation if logged in */}
-          <Route path="/creations/:creationId/delete"></Route> {/* delete single creation if logged in */}
-          
-        {/* PROFILE ROUTES */}
-          <Route path="/profile" element={<Navigate to='/profile/DADDA3C9-C1F8-4BAF-AC74-05AABED44DD5' />}></Route> {/* redirect to profile/:id */}
-          <Route path="/profile/:userId" element={<ProfilePage />}></Route> {/* user's profile when logged in */}
-          <Route path="/profile/:userId/edit"></Route> {/* edit profile if logged in */}
-          <Route path="/profile/:userId/delete"></Route> {/* delete profile if logged in */}
-          <Route path="/profile/:userId/challenges"></Route> {/* list of all challenges associated with user's profile*/}
-          <Route path="/profile/:userId/creations"></Route> {/* list of all creations associated with user's profile*/}
-          
-        {/* CREATE ROUTE */}
-          <Route path="/create" element={<CreatePage />}></Route>
-         <Route path="/create/challenge" element={<CreateChallengePage />}></Route>
-          <Route path="/create/creation" element={<CreateCreationPage />}></Route>
+        </aside>
+        <main>
+          <Routes>
+          {/* ROOT ROUTE */}
+            <Route path="/" element={<ChallengesPage />}></Route>
+
+          {/* CHALLENGES ROUTES */}
+            <Route path="/challenges" element={<ChallengesPage />}></Route> {/* list of all challenges */}
+            <Route path="/challenges/:challengeId" element={<SingleChallengePage />}></Route> {/* single challenge */}
+            <Route path="/challenges/:challengeId/edit" element={<EditChallengePage />}></Route> {/* edit single challenge if logged in */}
+            <Route path="/challenges/:challengeId/delete"></Route> {/* delete single challenge if logged in */}
+            <Route path="/challenges/:challengeId/create" element={<SpecificChallengeCreationPage />} ></Route> {/* create a specific challenge */}
         
-        {/* SIGN UP ROUTE */}
-          <Route path="/signup"></Route>
+          {/* CREATIONS ROUTES */}
+            <Route path="/creations" element={<CreationsPage />}></Route> {/* list of all creations */}
+            <Route path="/creations/:creationId" element={<SingleCreationPage />}></Route> {/* single creation */}
+            <Route path="/creations/:creationId/edit" element={<EditCreationPage />}></Route> {/* edit single creation if logged in */}
+            <Route path="/creations/:creationId/delete"></Route> {/* delete single creation if logged in */}
+            
+          {/* PROFILE ROUTES */}
+            <Route path="/profile" element={<Navigate to='/profile/DADDA3C9-C1F8-4BAF-AC74-05AABED44DD5' />}></Route> {/* redirect to profile/:id */}
+            <Route path="/profile/:userId" element={<ProfilePage />}></Route> {/* user's profile when logged in */}
+            <Route path="/profile/:userId/edit"></Route> {/* edit profile if logged in */}
+            <Route path="/profile/:userId/delete"></Route> {/* delete profile if logged in */}
+            <Route path="/profile/:userId/challenges"></Route> {/* list of all challenges associated with user's profile*/}
+            <Route path="/profile/:userId/creations"></Route> {/* list of all creations associated with user's profile*/}
+            
+          {/* CREATE ROUTE */}
+            <Route path="/create" element={<CreatePage />}></Route>
+          <Route path="/create/challenge" element={<CreateChallengePage />}></Route>
+            <Route path="/create/creation" element={<CreateCreationPage />}></Route>
+          
+          {/* SIGN UP ROUTE */}
+            <Route path="/signup"></Route>
 
-        {/* LOG IN ROUTE */}
-          <Route path="/login"></Route>
-        </Routes>
+          {/* LOG IN ROUTE */}
+            <Route path="/login"></Route>
+          </Routes>
 
-      </main>
+        </main>
+      </div>
     </BrowserRouter>
   );
 }
