@@ -16,22 +16,40 @@ function SimpleGallery({ galleryTitle, gallery, filterId }) {
           // Maps through items to create gallery cards
           .map((item) => (
             <div className="gallery__card">
-              <img src={item.image_url} alt={item.name} className="gallery__image" />
-
-              {/* Sets the url based on whether it's a creation or a challenge (challenges will not have item.challenge) */}
+              {/* Sets the url based on type of gallery */}
               <Link
                 to={
-                  item.challenge
+                  item.creation_id
+                    ? `/creations/${item.creation_id}`
+                    : item.challenge
                     ? `/creations/${item.id}`
                     : `/challenges/${item.id}`
                 }
                 className="gallery__name-link"
                 reloadDocument
               >
-                <h4 className="gallery__name">{item.name}</h4>
+                <img
+                  src={item.image_url}
+                  alt={item.name}
+                  className="gallery__image"
+                />
               </Link>
-
-              <p className="gallery__tag">{item.username}</p>
+              <Link
+                to={
+                  item.creation_id
+                    ? `/creations/${item.creation_id}`
+                    : item.challenge
+                    ? `/creations/${item.id}`
+                    : `/challenges/${item.id}`
+                }
+                className="gallery__name-link"
+                reloadDocument
+              >
+                <h4 className="gallery__name">
+                  {item.creation_name ? item.creation_name : item.name}
+                </h4>
+              </Link>
+                <p className="gallery__tag">{item.username}</p>
             </div>
           ))}
       </div>
