@@ -51,10 +51,10 @@ function DetailsCard({ data }) {
     <section className="details">
       <div className="details__creator">
         <div className="details__profile">
-          <figure className="details__creator-image-container">
-            <img src={data.profile_pic} className="details__creator-image" />
+          <figure className="details__profile-image-container">
+            <img src={data.profile_pic} className="details__profile-image" />
           </figure>
-          <p className="details__creator-name">{data.username}</p>
+          <p className="details__profile-name">{data.username}</p>
         </div>
         <div className="details__actions">
           <Link to="edit">

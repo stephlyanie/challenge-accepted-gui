@@ -10,12 +10,12 @@
         @include flex(flex-start, center);
         margin: 1rem 0;
 
-        @include desktop {
-            margin-top: 2rem;
+        @include tablet {
+            margin-top: 0.5rem;
         }
     }
 
-    &__creator-image {
+    &__profile-image {
         border-radius: 50%;
         height: 35px;
         margin-right: 0.5rem;
@@ -23,7 +23,7 @@
         object-fit: cover;
     }
 
-    &__creator-name {
+    &__profile-name {
         font-size: .825rem;
         font-weight: 500;
         text-transform: uppercase;
@@ -38,8 +38,12 @@
     }
 
     &__actions-edit, &__actions-delete {
-        fill: $text-secondary-dark;
+        fill: $bg-primary-dark;
         margin-left: .75rem;
+
+        &:hover {
+            fill: $bg-secondary-light;
+        }
     }
 
     &__title {

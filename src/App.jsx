@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
 
@@ -16,6 +17,8 @@ import EditCreationPage from "./pages/Creations/EditCreationPage";
 import ProfilePage from "./pages/Profile/ProfilePage";
 
 import CreatePage from "./pages/CreatePage/CreatePage";
+
+import Footer from "./components/Footer/Footer";
 
 import "./App.scss";
 
@@ -98,6 +101,7 @@ function App() {
           </Routes>
         </main>
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }

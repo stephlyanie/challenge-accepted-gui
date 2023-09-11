@@ -1,0 +1,20 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.site-footer {
+    background-color: $bg-primary-light;
+    font-size: 0.75rem;
+    margin-top: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+
+    @include tablet {
+        padding: 3rem 2rem;
+        text-align: left;
+    }
+
+    @include desktop {
+        font-size: 0.875rem;
+        padding: 3rem 4rem;
+    }
+}

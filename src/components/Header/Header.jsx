@@ -6,7 +6,7 @@ import "./Header.scss";
 function Header() {
   //Renders to page
   return (
-    <section className="site-header">
+    <header className="site-header">
       {/* Logo Component */}
       <section className="site-header__logo">
         <Link to="/">
@@ -79,7 +79,7 @@ function Header() {
         {/* Placeholder for profile */}
         <section className="site-header__profile"></section>
       </section>
-    </section>
+    </header>
   );
 }
 
