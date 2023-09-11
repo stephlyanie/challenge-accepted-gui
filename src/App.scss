@@ -28,18 +28,37 @@ p {
   margin-inline-end: 0;
 }
 
-// Set site margins
+// Body margins and layout
+.container {
+  @include tablet {
+    @include flex(space-between, flex-start);
+  }
+}
 main {
   margin: 1rem;
 
   @include tablet {
-    margin: 1.25rem 2rem;
+    margin: 1.25rem 1rem 1.25rem .5rem;
+    width: 74%;
   }
 
   @include desktop {
-    margin: 2rem 8rem;
+    margin: 2rem 8rem 2rem 1rem;
   }
 
+}
+
+aside {
+  margin: 1rem;
+
+  @include tablet {
+    margin: 1.75rem .5rem 1.75rem 1rem;
+    width: 24%;
+  }
+
+  @include desktop {
+    margin: 2.5rem 1rem 2.5rem 8rem;
+  }
 }
 
 .hidden {
