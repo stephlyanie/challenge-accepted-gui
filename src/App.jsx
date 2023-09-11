@@ -1,10 +1,3 @@
-// TO DO
-// Create/update logo
-// Add search bar mockup
-// Add burger menu
-// Add profile link mockup
-
-
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 

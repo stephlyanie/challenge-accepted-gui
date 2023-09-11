@@ -4,6 +4,7 @@ import "./Form.scss";
 import "../../styles/buttons.scss";
 import "../../styles/forms.scss";
 
+// Form for editing and creating challenges
 function ChallengeForm({
   category,
   setCategory,
@@ -18,7 +19,6 @@ function ChallengeForm({
   handleSubmit,
   handleReset,
 }) {
-
   // Store dropdown values for challenges, catetories and types select form fields
   const [categories, setCategories] = useState([]);
   const [types, setTypes] = useState([]);

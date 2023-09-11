@@ -4,6 +4,7 @@ import axios from "axios";
 
 import CreationForm from "../../components/Forms/CreationForm";
 
+// Edit creation page
 function EditCreationPage() {
   // Create variables for form field values
   const [challenge, setChallenge] = useState("");
@@ -13,14 +14,19 @@ function EditCreationPage() {
   const [description, setDescription] = useState("");
 
   const formRef = useRef();
+
+  // Captures creation id from url and saves in variable
   const { creationId } = useParams();
 
+  // Function for submit button click event
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const { name, description, username } = formRef.current;
+    // Stories the index of the selected challenge
     const challengeIndex = event.target.challenge.selectedIndex;
 
+    // Updates data to database
     axios
       .put(`http://localhost:8080/creations/${creationId}`, {
         name: name.value,
@@ -31,7 +37,7 @@ function EditCreationPage() {
       .catch((error) => console.error(error));
   };
 
-  // Resets the form when "Reset Form" clicked
+  // Resets the form from database when "Reset Form" clicked
   const handleReset = (event) => {
     event.preventDefault();
 
@@ -45,6 +51,7 @@ function EditCreationPage() {
     });
   };
 
+  // Renders to page
   return (
     <div>
       <CreationForm

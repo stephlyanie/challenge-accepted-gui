@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import "./ItemCard.scss";
 import "../../styles/buttons.scss";
 
+// Component for list of challenges and creations pages
 function ItemCard({ data, isChallenge }) {
-
+  // Renders to page
   return (
     <section>
       {/* Maps through axios data to create item cards of each challenge or creation */}
@@ -13,10 +14,7 @@ function ItemCard({ data, isChallenge }) {
           <div className="item__creator">
             <div className="item__creator-container">
               <figure className="item__creator-image-container">
-                <img
-                  src={item.profile_pic}
-                  className="item__creator-image"
-                />
+                <img src={item.profile_pic} className="item__creator-image" />
               </figure>
               <p className="item__creator-name">{item.username}</p>
             </div>
@@ -42,14 +40,25 @@ function ItemCard({ data, isChallenge }) {
               </div>
               <p className="item__details-description">{item.description}</p>
               <div className="item__details-buttons">
-
                 {/* Sets link according to whether item card is used for a challenge or a creation */}
-                <Link to={isChallenge ? `/challenges/${item.id}/create` : `/challenges/${item.challenge_id}/create`}>
+                <Link
+                  to={
+                    isChallenge
+                      ? `/challenges/${item.id}/create`
+                      : `/challenges/${item.challenge_id}/create`
+                  }
+                >
                   <button className="button button__primary">Create</button>
                 </Link>
 
                 {/* Sets link according to whether item card is used for a challenge or a creation */}
-                <Link to={isChallenge ? `/challenges/${item.id}` : `/creations/${item.id}`}>
+                <Link
+                  to={
+                    isChallenge
+                      ? `/challenges/${item.id}`
+                      : `/creations/${item.id}`
+                  }
+                >
                   <button className="button">Learn</button>
                 </Link>
               </div>

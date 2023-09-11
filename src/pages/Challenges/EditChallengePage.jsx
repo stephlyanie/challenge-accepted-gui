@@ -4,6 +4,7 @@ import axios from "axios";
 
 import ChallengeForm from "../../components/Forms/ChallengeForm";
 
+// Edit a challenge page
 function EditChallengePage() {
   // Create variables for form field values
   const [category, setCategory] = useState("");
@@ -12,14 +13,19 @@ function EditChallengePage() {
   const [description, setDescription] = useState("");
 
   const formRef = useRef();
+
+  // Captures challenge id from url and saves in variable
   const { challengeId } = useParams();
 
+  // Function for submit button click event
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const { name, description, username } = formRef.current;
+    // Stories the index of the selected type
     const typeIndex = event.target.type.selectedIndex;
 
+    // Updates data to database
     axios
       .put(`http://localhost:8080/challenges/${challengeId}`, {
         name: name.value,
@@ -30,7 +36,7 @@ function EditChallengePage() {
       .catch((error) => console.error(error));
   };
 
-  // Resets the form when "Reset Form" clicked
+  // Resets the form from database when "Reset Form" clicked
   const handleReset = (event) => {
     event.preventDefault();
 
@@ -42,6 +48,7 @@ function EditChallengePage() {
     });
   };
 
+  // Renders to page
   return (
     <div>
       <ChallengeForm

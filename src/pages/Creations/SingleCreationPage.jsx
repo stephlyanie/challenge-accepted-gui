@@ -5,52 +5,68 @@ import axios from "axios";
 import DetailsCard from "../../components/DetailsCard/DetailsCard";
 import SimpleGallery from "../../components/SimpleGallery/SimpleGallery";
 
+// Single creation page
 function SingleCreationPage() {
+  // Captures creation id from url and saves in variable
+  const { creationId } = useParams();
 
-    const [data, setData] = useState([]);
-    const { creationId } = useParams();
-    const [userId, setUserId] = useState();
-    const [gallery, setGallery] = useState([]);
-    const [galleryTitle, setGalleryTitle] = useState(``); // Stores gallery title to pass to simple gallery component
-    const filterId = creationId;
+  // Stores data of single challenge or creation from axios call to database
+  const [data, setData] = useState([]);
 
-    useEffect(() => {
-        axios
-            .get(`http://localhost:8080/creations/${creationId}`)
-            .then((res) => {
-                setData(res.data[0]);
-                setUserId(res.data[0].created_by_id)
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }, [])
+  // Stores user Id to create gallery of creations by same user
+  const [userId, setUserId] = useState();
 
-    useEffect(() => {
-        axios
-            .get(`http://localhost:8080/users/${userId}/creations`)
-            .then((res) => {
-                setGallery(res.data);
-                console.log(res.data)
+  // Stores data of related creations from axios call to database
+  const [gallery, setGallery] = useState([]);
 
-                setGalleryTitle(`More creations by ${data.username}`)
-                // To do filter out current creation
-            })
-            .then(() => {
-                console.log("gallery: " + gallery)
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }, [userId])
+  // Sets gallery title
+  const [galleryTitle, setGalleryTitle] = useState(``); // Stores gallery title to pass to simple gallery component
 
+  // Sets filter id to be able to filter the featured item
+  const filterId = creationId;
 
-    return (
-        <div>
-            <DetailsCard data={data} />
-            {gallery.length > 0 ? <SimpleGallery galleryTitle={galleryTitle} gallery={gallery} filterId={filterId} /> : null}
-        </div>
-    )
-};
+  // Pulls data of single creation from database
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/creations/${creationId}`)
+      .then((res) => {
+        setData(res.data[0]);
+        setUserId(res.data[0].created_by_id);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  // Pulls data of all creations made by same user
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/users/${userId}/creations`)
+      .then((res) => {
+        setGallery(res.data);
+        setGalleryTitle(`More creations by ${data.username}`);
+        // To do filter out current creation
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [userId]);
+
+  // Renders to page
+  return (
+    <div>
+      <DetailsCard data={data} />
+
+      {/* If there other creations by same user, show a gallery */}
+      {gallery.length > 0 ? (
+        <SimpleGallery
+          galleryTitle={galleryTitle}
+          gallery={gallery}
+          filterId={filterId}
+        />
+      ) : null}
+    </div>
+  );
+}
 
 export default SingleCreationPage;

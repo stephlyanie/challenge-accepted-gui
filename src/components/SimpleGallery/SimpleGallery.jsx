@@ -1,21 +1,18 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./SimpleGallery.scss";
 import "../../styles/buttons.scss";
 
+// Gallery component for showcasing related challenges/creations
 function SimpleGallery({ galleryTitle, gallery, filterId }) {
-
-    // console.log("filterId: " + filterId)
-    // const filteredGallery = gallery.filter((item) =>  filterId !== item.id)
-    // console.log("filteredGallery: " + filteredGallery)
-
+  // Renders to page
   return (
     <section className="gallery">
       <h3 className="gallery__title">{galleryTitle}</h3>
       <div className="gallery__container">
         {gallery
           // Filters the featured item
-          .filter((item) =>  filterId !== item.id)
+          .filter((item) => filterId !== item.id)
           // Maps through items to create gallery cards
           .map((item) => (
             <div className="gallery__card">

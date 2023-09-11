@@ -1,31 +1,34 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import ItemCard from "../../components/ItemCard/ItemCard";
 
+// List of challenges page
 function ChallengesPage() {
+  // Stores data of single challenge or creation from axios call to database
+  const [data, setData] = useState([]);
 
-    const [data, setData] = useState([]);
-    const isChallenge = true;
+  // Identifies that the page is a challenge
+  const isChallenge = true;
 
-    useEffect(() => {
-        axios
-            .get('http://localhost:8080/challenges')
-            .then((res) => {
-                setData(res.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }, [])
+  // Pulls data of single challenge from database
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/challenges")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
-
-    return (
-        <div>
-            <ItemCard data={data} isChallenge={isChallenge} />
-        </div>
-    )
-};
+  // Renders to page
+  return (
+    <div>
+      <ItemCard data={data} isChallenge={isChallenge} />
+    </div>
+  );
+}
 
 export default ChallengesPage;

@@ -4,6 +4,7 @@ import axios from "axios";
 
 import ChallengeForm from "../../components/Forms/ChallengeForm";
 
+// Create a challenge page
 function CreateChallengePage() {
   // Create variables for form field values
   const [challenge, setChallenge] = useState("");
@@ -15,12 +16,16 @@ function CreateChallengePage() {
   const formRef = useRef();
   const navigate = useNavigate();
 
+  // Function for submit button click event
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const { name, description, username } = formRef.current;
+    // Stores the index of the selected type
     const typeIndex = event.target.type.selectedIndex;
 
+    // Inserts data to database
+    // Then redirects to the new challenge page
     axios
       .post("http://localhost:8080/challenges", {
         name: name.value,
@@ -35,7 +40,7 @@ function CreateChallengePage() {
       .catch((error) => console.error(error));
   };
 
-  // Resets the form when "Reset Form" clicked
+  // Resets the form fields to empty when "Reset Form" clicked
   const handleReset = () => {
     setCategory("");
     setType("");
@@ -43,6 +48,7 @@ function CreateChallengePage() {
     setDescription("");
   };
 
+  // Renders to page
   return (
     <div>
       <ChallengeForm

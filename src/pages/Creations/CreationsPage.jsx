@@ -3,28 +3,32 @@ import axios from "axios";
 
 import ItemCard from "../../components/ItemCard/ItemCard";
 
+// List of creations page
 function CreationsPage() {
+  // Stores data of single challenge or creation from axios call to database
+  const [data, setData] = useState([]);
 
-    const [data, setData] = useState([]);
-    const isChallenge = false;
+  // Identifies that the page is not a challenge
+  const isChallenge = false;
 
-    useEffect(() => {
-        axios
-            .get('http://localhost:8080/creations')
-            .then((res) => {
-                setData(res.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }, [])
+  // Pulls data of single creation from database
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/creations")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
-
-    return (
-        <div>
-            <ItemCard data={data} isChallenge={isChallenge} />
-        </div>
-    )
-};
+  // Renders to page
+  return (
+    <div>
+      <ItemCard data={data} isChallenge={isChallenge} />
+    </div>
+  );
+}
 
 export default CreationsPage;
