@@ -3,13 +3,10 @@
 
 .site-header {
     background-color: $bg-primary-light;
-    flex-direction: column;
     padding: 1rem;
-    @include flex(center, center);
+    @include flex(space-between, center);
 
-    &__nav {
-        width: 100%;
-    }
+    
 
     &__nav-links {
         @include flex(center, baseline);
@@ -61,6 +58,13 @@
         @include desktop {
             margin: 0.25rem 0 0.25rem 0.25rem;
         }
+    }
+
+    &__profile {
+        border: $border-primary-dark;
+        border-radius: 50%;
+        height: 2.5rem;
+        width: 2.5rem;
     }
 
     @include tablet {

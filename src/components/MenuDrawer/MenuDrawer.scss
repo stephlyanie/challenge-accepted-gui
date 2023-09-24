@@ -1,0 +1,33 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.menu {
+    &__icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    &__nav {
+        @include flex(space-between);
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    &__nav-item {
+        border-bottom: solid 1px $border-primary-light;
+        padding: 1rem 0;
+    }
+
+    &__nav-item-icon {
+        height: 25px;
+        width: 25px;
+    }
+
+    &__footer {
+        flex-grow: 0;
+    }
+
+    &__bottom-nav {
+        @include flex(space-between);
+    }
+}
