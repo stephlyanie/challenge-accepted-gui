@@ -11,6 +11,7 @@
         @include flex(space-between);
         flex-direction: column;
         height: 100vh;
+        padding-top: 2rem;
     }
 
     &__nav-item {
@@ -29,5 +30,23 @@
 
     &__bottom-nav {
         @include flex(space-between);
+    }
+
+    &__bottom-nav-text {
+        font-size: .75rem;
+    }
+
+    &__nav-bottom-icons {
+        flex-grow: 0;
+    }
+
+    &__nav-bottom-icon {
+        height: 20px;
+        width: 20px;
+    }
+
+    &__copyright {
+        font-size: .625rem;
+        margin: 0.5rem 1.125rem 1rem;
     }
 }

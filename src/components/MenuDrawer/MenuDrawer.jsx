@@ -4,6 +4,9 @@ import "./MenuDrawer.scss";
 // React
 import { useState } from "react";
 
+// React Router Dom
+import { useNavigate } from "react-router-dom";
+
 // MUI
 import { Button } from "@mui/base/Button";
 import Drawer from "@mui/joy/Drawer";
@@ -23,30 +26,61 @@ import { ReactComponent as Settings } from "../../assets/images/settings.svg";
 import { ReactComponent as Info } from "../../assets/images/info.svg";
 import { ReactComponent as Logout } from "../../assets/images/logout.svg";
 
+// Components
+import Search from "../Search/Search";
+
 // Component for burger menu modal drawer pages
 function MenuDrawer() {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   const mainNav = [
     {
       name: "Challenges",
       icon: <Challenge className="menu__nav-item-icon" />,
+      url: "/challenges",
     },
     {
       name: "Creations",
       icon: <Challenge className="menu__nav-item-icon" />,
+      url: "/creations",
     },
     {
       name: "Make Something",
       icon: <Create className="menu__nav-item-icon" />,
+      url: "/create",
     },
     {
       name: "Profile",
       icon: <Profile className="menu__nav-item-icon" />,
+      url: "/profile",
     },
     {
       name: "Settings",
       icon: <Settings className="menu__nav-item-icon" />,
+      url: "/profile/settings",
+    },
+  ];
+
+  const footerNav = [
+    {
+      name: "Terms",
+      url: "/terms",
+    },
+    {
+      name: "Privacy",
+      url: "/privacy",
+    },
+  ];
+
+  const footerNavIcons = [
+    {
+      name: <Info className="menu__nav-bottom-icon" />,
+      url: "/help",
+    },
+    {
+      name: <Logout className="menu__nav-bottom-icon" />,
+      url: "/logout",
     },
   ];
 
@@ -63,41 +97,69 @@ function MenuDrawer() {
       >
         <ModalClose />
         <div className="menu__nav">
-            <List component="nav" className="menu__top-nav" >
+            <Search />
+          <List component="nav" className="menu__top-nav">
             {mainNav.map((nav) => (
-                <ListItem key={nav.name} className="menu__nav-item">
+              <ListItem key={nav.name} className="menu__nav-item">
                 <ListItemButton
-                    sx={{
+                  sx={{
                     padding: "1rem 0.75rem",
-                    }}
+                  }}
+                  onClick={() => {
+                    navigate(`${nav.url}`);
+                    setOpen(false);
+                  }}
                 >
-                    <ListItemDecorator>{nav.icon}</ListItemDecorator>
-                    <p className="menu__nav-item-text">{nav.name}</p>
+                  <ListItemDecorator>{nav.icon}</ListItemDecorator>
+                  <p className="menu__nav-item-text">{nav.name}</p>
                 </ListItemButton>
-                </ListItem>
+              </ListItem>
             ))}
-            </List>
-            <div className="menu__footer">
-                <div className="menu__bottom-nav">
-                    <List component="div" orientation="horizontal">
-                    {["Terms", "Privacy"].map((text) => (
-                        <ListItem key={text}>
-                            <ListItemButton>{text}</ListItemButton>
-                        </ListItem>
-                    ))}
-                    </List>
-                    <List component="div" orientation="horizontal">
-                    {[<Info className="menu__nav-item-icon" />, <Logout className="menu__nav-item-icon" />].map((text) => (
-                        <ListItem key={text}>
-                            <ListItemButton>{text}</ListItemButton>
-                        </ListItem>
-                    ))}
-                    </List>
-                </div>
-                <div className="menu__copyright">
-                        &copy; Stephanie Hall
-                </div>
+          </List>
+          <div className="menu__footer">
+            <div className="menu__bottom-nav">
+              <List component="div" orientation="horizontal">
+                {footerNav.map((nav) => (
+                  <ListItem key={nav.name}>
+                    <ListItemButton
+                      className="menu__bottom-nav-text"
+                      sx={{
+                        fontSize: "0.75rem",
+                      }}
+                      onClick={() => {
+                        navigate(`${nav.url}`);
+                        setOpen(false);
+                      }}
+                    >
+                      {nav.name}
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
+              <List
+                component="div"
+                orientation="horizontal"
+                className="menu__nav-bottom-icons"
+                sx={{
+                  flexGrow: 0,
+                }}
+              >
+                {footerNavIcons.map((nav) => (
+                  <ListItem key={nav.name}>
+                    <ListItemButton
+                      onClick={() => {
+                        navigate(`${nav.url}`);
+                        setOpen(false);
+                      }}
+                    >
+                      {nav.name}
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
             </div>
+            <div className="menu__copyright">&copy; Stephanie Hall</div>
+          </div>
         </div>
       </Drawer>
     </section>

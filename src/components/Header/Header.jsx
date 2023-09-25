@@ -23,7 +23,7 @@ function Header() {
       </section>
       
         {/* Placeholder for profile */}
-      <section className="site-header__profile"></section>
+        <img src={require("../../assets/images/PlaceholderLC.png")} alt="placeholder" className="site-header__profile" />
     </header>
   );
 }
