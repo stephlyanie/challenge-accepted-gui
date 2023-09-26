@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/logo/logoipsum-235.svg";
 import "./Header.scss";
 
-import MenuDrawer from "../../components/MenuDrawer/MenuDrawer";
+import MenuDrawer from "../../components/Menus/MenuDrawer";
 
 
 // Header component for all pages

@@ -1,0 +1,17 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.plus-button {
+    &__container {
+        background-color: $bg-primary-light;
+        border: none;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+    }
+
+    &__icon {
+        height: 100%;
+        width: 100%;
+    }
+}
