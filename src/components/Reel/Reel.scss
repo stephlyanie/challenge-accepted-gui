@@ -1,0 +1,24 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.reel {
+    @include flex(space-between, center);
+
+    &__icon {
+        height: 2rem;
+        width: 2rem;
+    }
+
+    &__container {
+        background-color: $bg-primary-light;
+        border-radius: 1.25rem;
+        flex-grow: 1;
+        margin: 1rem;
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    &__title {
+        font-weight: bold;
+    }
+}

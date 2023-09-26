@@ -1,0 +1,13 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+.home {
+    &__gallery-buttons {
+        @include flex(space-between, center)
+    }
+
+    &__tab-button {
+        border-radius: 1.25rem;
+        margin: 2rem 0 0.75rem;
+        width: 47%;
+    }
+}

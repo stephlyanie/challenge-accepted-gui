@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
 
+import HomePage from "./pages/HomePage/HomePage";
+
 import ChallengesPage from "./pages/Challenges/ChallengesPage";
 import SingleChallengePage from "./pages/Challenges/SingleChallengePage";
 import CreateChallengePage from "./pages/Challenges/CreateChallengePage";
@@ -33,7 +35,7 @@ function App() {
         <main>
           <Routes>
             {/* ROOT ROUTE */}
-            <Route path="/" element={<ChallengesPage />}></Route>
+            <Route path="/" element={<HomePage />}></Route>
             {/* CHALLENGES ROUTES */}
             <Route path="/challenges" element={<ChallengesPage />}></Route>{" "}
             {/* list of all challenges */}

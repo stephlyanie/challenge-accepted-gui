@@ -12,7 +12,6 @@ import { Button } from "@mui/base/Button";
 import Drawer from "@mui/joy/Drawer";
 import List from "@mui/joy/List";
 import ListItem from "@mui/joy/ListItem";
-import Divider from "@mui/joy/ListDivider";
 import ListItemDecorator from "@mui/joy/ListItemDecorator";
 import ListItemButton from "@mui/joy/ListItemButton";
 import ModalClose from "@mui/joy/ModalClose";
