@@ -9,6 +9,11 @@
     margin: 1rem 0;
     padding: 0.5rem;
 
+    &__link {
+        color: $text-primary-dark;
+        text-decoration: none;
+    }
+
     &__image-box {
         align-self: stretch;
         max-width: 33%;

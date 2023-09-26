@@ -28,18 +28,20 @@ function HomePage() {
 
   const [itemData, setItemData] = useState([]);
   const [activeTab, setActiveTab] = useState("challenges"); // Stores the gallery creations tab as true/false
+  const [isChallenge, setIsChallenge] = useState(true);
 
   // Calls database to set the simple gallery to challenges or creations data from user ID
   // Listens for creationsTab and challengesTab changes
 
   useEffect(() => {
     // On load and if the challenges tab is true (challenges button clicked)
-    // Sets the item data as list of challenges 
+    // Sets the item data as list of challenges
     if (activeTab === "challenges") {
       axios
         .get(`http://localhost:8080/challenges`)
         .then((res) => {
           setItemData(res.data);
+          setIsChallenge(true);
         })
         .catch((error) => {
           console.log(error);
@@ -47,12 +49,13 @@ function HomePage() {
     }
 
     // If creations tab is true (creations button clicked)
-    // Sets the simple gallery data as list of creations 
+    // Sets the simple gallery data as list of creations
     if (activeTab === "creations") {
       axios
         .get(`http://localhost:8080/creations`)
         .then((res) => {
           setItemData(res.data);
+          setIsChallenge(false);
         })
         .catch((error) => {
           console.log(error);
@@ -89,24 +92,24 @@ function HomePage() {
       <div className="home__gallery">
         {/* Gallery Tab Buttons */}
         <div className="home__gallery-buttons">
-            <button
+          <button
             id="challenges"
             className={challengesClass}
             onClick={handleChallengesTab}
-            >
+          >
             Challenges
-            </button>
-            <button
+          </button>
+          <button
             id="creations"
             className={creationsClass}
             onClick={handleCreationsTab}
-            >
+          >
             Creations
-            </button>
+          </button>
         </div>
 
-        {/* Simple Gallery Component */}
-        <ItemCard data={itemData} />
+        {/* Gallery Component */}
+        <ItemCard data={itemData} isChallenge={isChallenge} />
       </div>
     </section>
   );

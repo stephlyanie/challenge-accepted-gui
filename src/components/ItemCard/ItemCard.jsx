@@ -13,10 +13,30 @@ function ItemCard({ data, isChallenge }) {
       {data.map((item) => (
         <div key={item.id} className="item">
           <div className="item__image-box">
-            <img src={item.image_url} alt={data.name} className="item__image" />
+          <Link
+            to={
+              isChallenge
+                ? `/challenges/${item.id}`
+                : `/challenges/${item.challenge_id}`
+            }
+
+            className="item__link"
+          >
+              <img src={item.image_url} alt={data.name} className="item__image" />
+            </Link>
           </div>
           <div className="item__details">
-            <h3 className="item__details-title">{item.name}</h3>
+            <Link
+              to={
+                isChallenge
+                  ? `/challenges/${item.id}`
+                  : `/challenges/${item.challenge_id}`
+              }
+
+              className="item__link"
+            >
+              <h3 className="item__details-title">{item.name}</h3>
+            </Link>
             <div className="item__details-tags">
               <p
                 className={
@@ -49,7 +69,17 @@ function ItemCard({ data, isChallenge }) {
             </div>
             <p className="item__details-user">Created by {item.username}</p>
           </div>
-          <Create className="item__icon" />
+          <Link
+            to={
+              isChallenge
+                ? `/challenges/${item.id}/create`
+                : `/challenges/${item.challenge_id}/create`
+            }
+
+            className="item__link"
+          >
+            <Create className="item__icon" />
+          </Link>
         </div>
       ))}
     </section>
