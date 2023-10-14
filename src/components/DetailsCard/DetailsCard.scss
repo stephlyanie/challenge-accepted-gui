@@ -2,7 +2,6 @@
 @use "../../styles/variables" as *;
 
 .details {
-    position: relative;
 
     &__image {
         border-radius: 1.25rem;
@@ -55,9 +54,15 @@
     }
 
     &__image-container {
+        position: relative;
+
         @include tablet {
             height: auto;
             position: relative;
+        }
+
+        @include desktop {
+            margin: 0 1rem 0 0;
         }
     }
 
@@ -66,6 +71,10 @@
         object-fit: cover;
         overflow: hidden;
         width: 100%;
+
+        @include tablet {
+            aspect-ratio: 16 / 9;
+        }
     }
 
     &__description {
@@ -89,9 +98,10 @@
 
     &__button {
         width: 100%;
+    }
 
-        @include desktop {
-            width: auto;
-        }
+    @include desktop {
+        margin: 0 auto;
+        max-width: 750px;
     }
 }

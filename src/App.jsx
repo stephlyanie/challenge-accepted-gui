@@ -28,10 +28,6 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <div className="container">
-        <aside>
-          <Search />
-        </aside>
         <main>
           <Routes>
             {/* ROOT ROUTE */}
@@ -102,7 +98,6 @@ function App() {
             <Route path="/login"></Route>
           </Routes>
         </main>
-      </div>
       <Footer />
     </BrowserRouter>
   );
