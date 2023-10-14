@@ -2,7 +2,13 @@
 @use "../../styles/variables" as *;
 
 .search {
-    margin: 1rem 1rem 0;
+    &__mobile {
+        margin: 1rem 1rem 0;
+    }
+    
+    &__tablet {
+        margin: 1rem 0;
+    }
     
     &__input {
         background-image: url("../../assets/images/search.svg");

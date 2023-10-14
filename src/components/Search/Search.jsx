@@ -1,9 +1,9 @@
 import "./Search.scss";
 
-function Search() {
+function Search({ classExtension }) {
   // Renders to page
   return (
-    <section className="search">
+    <section className={`search__${classExtension}`}>
       <input type="search" className="search__input" id="search"></input>
     </section>
   );

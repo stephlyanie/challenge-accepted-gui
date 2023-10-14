@@ -96,7 +96,7 @@ function MenuDrawer() {
       >
         <ModalClose />
         <div className="menu__nav">
-            <Search />
+            <Search classExtension={"mobile"} />
           <List component="nav" className="menu__top-nav">
             {mainNav.map((nav) => (
               <ListItem key={nav.name} className="menu__nav-item">

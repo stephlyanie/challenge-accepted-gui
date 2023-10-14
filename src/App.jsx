@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
+import MobileHeader from "./components/Header/MobileHeader";
 import Header from "./components/Header/Header";
-import Search from "./components/Search/Search";
 
 import HomePage from "./pages/HomePage/HomePage";
 
@@ -25,9 +25,13 @@ import Footer from "./components/Footer/Footer";
 import "./App.scss";
 
 function App() {
+  const width = window.innerWidth;
+  const breakpoint = 768;
+
   return (
     <BrowserRouter>
-      <Header />
+      <div className="container">
+        {width < breakpoint ? <MobileHeader /> : <Header />}
         <main>
           <Routes>
             {/* ROOT ROUTE */}
@@ -98,7 +102,7 @@ function App() {
             <Route path="/login"></Route>
           </Routes>
         </main>
-      <Footer />
+      </div>
     </BrowserRouter>
   );
 }
