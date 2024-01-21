@@ -6,18 +6,20 @@ import "../../styles/buttons.scss";
 import { ReactComponent as Create } from "../../assets/images/create.svg";
 
 // Component for list of challenges and creations pages
-function ItemCard({ data, isChallenge }) {
+function ItemCard({ data, isChallenge, filterId }) {
   // Renders to page
   return (
     <section>
-      {data.map((item) => (
+      {data
+      .filter((item) => filterId !== item.id)
+      .map((item) => (
         <div key={item.id} className="item">
           <div className="item__image-box">
           <Link
             to={
               isChallenge
                 ? `/challenges/${item.id}`
-                : `/challenges/${item.challenge_id}`
+                : `/creations/${item.id}`
             }
 
             className="item__link"
@@ -30,14 +32,14 @@ function ItemCard({ data, isChallenge }) {
               to={
                 isChallenge
                   ? `/challenges/${item.id}`
-                  : `/challenges/${item.challenge_id}`
+                  : `/creations/${item.id}`
               }
 
               className="item__link"
             >
               <h3 className="item__details-title">{item.name}</h3>
             </Link>
-            <div className="item__details-tags">
+            <div className="item__details-tags"> 
               <p
                 className={
                   // Will display if loaded as a creation card, otherwise will be set to display:none

@@ -3,7 +3,10 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import DetailsCard from "../../components/DetailsCard/DetailsCard";
+import ItemCard from "../../components/ItemCard/ItemCard";
 import SimpleGallery from "../../components/SimpleGallery/SimpleGallery";
+
+import "./SingleChallengePage.scss";
 
 // Landing page for a single challenge
 function SingleChallengePage() {
@@ -21,6 +24,7 @@ function SingleChallengePage() {
 
   // Sets filter id to be able to filter the featured item
   const filterId = null;
+
 
   // Pulls data of single challenge from database
   useEffect(() => {
@@ -40,6 +44,7 @@ function SingleChallengePage() {
       .get(`http://localhost:8080/challenges/${challengeId}/creations`)
       .then((res) => {
         setGallery(res.data);
+        console.log(res.data)
       })
       .catch((error) => {
         console.log(error);
@@ -48,17 +53,16 @@ function SingleChallengePage() {
 
   // Renders to page
   return (
-    <div>
-      <DetailsCard data={data} />
-
+    <div className="challenge">
+      <section className="challenge__details">
+        <DetailsCard data={data} />
+      </section>
       {/* If there are related creations, show a gallery */}
-      {gallery.length > 0 ? (
-        <SimpleGallery
-          galleryTitle={galleryTitle}
-          gallery={gallery}
-          filterId={filterId}
-        />
-      ) : null}
+      <section className="challenge__gallery">
+        {gallery.length > 0 ? (
+          <ItemCard data={gallery} isChallenge={false} />
+        ) : null}
+      </section>
     </div>
   );
 }

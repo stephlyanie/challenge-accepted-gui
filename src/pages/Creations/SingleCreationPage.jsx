@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import DetailsCard from "../../components/DetailsCard/DetailsCard";
-import SimpleGallery from "../../components/SimpleGallery/SimpleGallery";
+import ItemCard from "../../components/ItemCard/ItemCard";
 
 // Single creation page
 function SingleCreationPage() {
@@ -58,13 +58,9 @@ function SingleCreationPage() {
       <DetailsCard data={data} />
 
       {/* If there other creations by same user, show a gallery */}
-      {gallery.length > 1 ? (
-        <SimpleGallery
-          galleryTitle={galleryTitle}
-          gallery={gallery}
-          filterId={filterId}
-        />
-      ) : null}
+      {gallery.length > 0 ? (
+          <ItemCard data={gallery} isChallenge={true} filterId={filterId} />
+        ) : null}
     </div>
   );
 }

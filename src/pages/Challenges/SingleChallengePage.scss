@@ -1,0 +1,15 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.challenge{
+    @include desktop {
+        @include flex;
+    }
+
+    &__gallery {
+        @include desktop {
+            margin-left: 1rem;
+            width: 25%;
+        }
+    }
+}

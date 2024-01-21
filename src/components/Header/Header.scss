@@ -4,9 +4,10 @@
 .site-header {
     background-color: $bg-primary-light;
     flex-direction: column;
+    min-height: 100vh;
     min-width: 14rem;
     padding: 1.25rem;
-    @include flex;
+    @include flex(flex-start, flex-start);
 
     &__logo {
         margin-bottom: 1rem;
@@ -69,7 +70,7 @@
     }
 
     @include desktop {
-        min-width: 20rem;
+        min-width: 16rem;
         padding: 1.25rem 1.75rem;
     }
 }
