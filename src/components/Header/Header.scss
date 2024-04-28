@@ -2,12 +2,10 @@
 @use "../../styles/variables" as *;
 
 .site-header {
-    background-color: $bg-primary-light;
-    flex-direction: column;
-    min-height: 100vh;
+    background-color: $bg-secondary-dark;
     min-width: 14rem;
-    padding: 1.25rem;
-    @include flex(flex-start, flex-start);
+    padding: 2.5rem 1.25rem 1.25rem;
+    @include flex(space-between, flex-start);
 
     &__logo {
         margin-bottom: 1rem;
@@ -67,6 +65,13 @@
 
     &__footer-nav {
         @include flex (flex-start, center);
+    }
+
+    @include tablet {
+        flex-direction: column;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 1.25rem;
     }
 
     @include desktop {
