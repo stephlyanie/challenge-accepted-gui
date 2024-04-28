@@ -38,7 +38,7 @@ function HomePage() {
     // Sets the item data as list of challenges
     if (activeTab === "challenges") {
       axios
-        .get(`https://challenge-accepted-b63b428b2200.herokuapp.com/challenges`)
+        .get(`d1kb8x1fu8rhcnej.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/challenges`)
         .then((res) => {
           setItemData(res.data);
           setIsChallenge(true);
