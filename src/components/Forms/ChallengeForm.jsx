@@ -32,7 +32,7 @@ function ChallengeForm({
   useEffect(() => {
     if (challengeId) {
       axios
-        .get(`http://localhost:8080/challenges/${challengeId}`)
+        .get(`https://challenge-accepted-b63b428b2200.herokuapp.com/challenges/${challengeId}`)
         .then((res) => {
           setCategory(res.data[0].category);
           setType(res.data[0].type);
@@ -46,7 +46,7 @@ function ChallengeForm({
   // Listens for type to be selected
   useEffect(() => {
     axios
-      .get("http://localhost:8080/categories/")
+      .get("https://challenge-accepted-b63b428b2200.herokuapp.com/categories/")
       .then((res) => {
         setCategories(res.data);
       })
@@ -57,7 +57,7 @@ function ChallengeForm({
     // If a type is selected
     // Populates the category field accordingly
     if (type) {
-      axios.get(`http://localhost:8080/types/${typeId}`).then((res) => {
+      axios.get(`https://challenge-accepted-b63b428b2200.herokuapp.com/types/${typeId}`).then((res) => {
         setCategory(res.data[0].category_name);
       });
     }
@@ -67,7 +67,7 @@ function ChallengeForm({
   // Listens for category to be selected
   useEffect(() => {
     axios
-      .get("http://localhost:8080/types/")
+      .get("https://challenge-accepted-b63b428b2200.herokuapp.com/types/")
       .then((res) => {
         setTypes(res.data);
       })
@@ -79,7 +79,7 @@ function ChallengeForm({
     // Populates the list of types accordingly
     if (category) {
       axios
-        .get(`http://localhost:8080/categories/${categoryId}/types`)
+        .get(`https://challenge-accepted-b63b428b2200.herokuapp.com/categories/${categoryId}/types`)
         .then((res) => {
           setTypes(res.data);
         })

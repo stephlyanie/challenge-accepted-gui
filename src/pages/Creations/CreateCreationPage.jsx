@@ -27,7 +27,7 @@ function CreateCreationPage() {
     // Inserts data to database
     // Then redirects to the new creation page
     axios
-      .post("http://localhost:8080/creations", {
+      .post("https://challenge-accepted-b63b428b2200.herokuapp.com/creations", {
         name: name.value,
         description: description.value,
         created_by_id: username.id,

@@ -14,7 +14,7 @@ function ChallengesPage() {
   // Pulls data of single challenge from database
   useEffect(() => {
     axios
-      .get("http://localhost:8080/challenges")
+      .get("https://challenge-accepted-b63b428b2200.herokuapp.com/challenges")
       .then((res) => {
         setData(res.data);
       })

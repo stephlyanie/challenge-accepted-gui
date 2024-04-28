@@ -38,7 +38,7 @@ function HomePage() {
     // Sets the item data as list of challenges
     if (activeTab === "challenges") {
       axios
-        .get(`http://localhost:8080/challenges`)
+        .get(`https://challenge-accepted-b63b428b2200.herokuapp.com/challenges`)
         .then((res) => {
           setItemData(res.data);
           setIsChallenge(true);
@@ -52,7 +52,7 @@ function HomePage() {
     // Sets the simple gallery data as list of creations
     if (activeTab === "creations") {
       axios
-        .get(`http://localhost:8080/creations`)
+        .get(`https://challenge-accepted-b63b428b2200.herokuapp.com/creations`)
         .then((res) => {
           setItemData(res.data);
           setIsChallenge(false);

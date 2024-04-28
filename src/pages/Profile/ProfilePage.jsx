@@ -22,7 +22,7 @@ function ProfilePage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/users/${userId}`)
+      .get(`https://challenge-accepted-b63b428b2200.herokuapp.com/users/${userId}`)
       .then((res) => {
         setData(res.data[0]);
       })
@@ -48,7 +48,7 @@ function ProfilePage() {
     // Does not set a gallery title
     if (activeTab === "challenges") {
       axios
-        .get(`http://localhost:8080/users/${userId}/challenges`)
+        .get(`https://challenge-accepted-b63b428b2200.herokuapp.com/users/${userId}/challenges`)
         .then((res) => {
           setGallery(res.data);
         })
@@ -62,7 +62,7 @@ function ProfilePage() {
     // Does not set a gallery title
     if (activeTab === "creations") {
       axios
-        .get(`http://localhost:8080/users/${userId}/creations`)
+        .get(`https://challenge-accepted-b63b428b2200.herokuapp.com/users/${userId}/creations`)
         .then((res) => {
           setGallery(res.data);
         })

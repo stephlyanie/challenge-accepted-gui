@@ -27,7 +27,7 @@ function CreateChallengePage() {
     // Inserts data to database
     // Then redirects to the new challenge page
     axios
-      .post("https://challenge-accepted-b63b428b2200.herokuapp.com/challenges", {
+      .post("https://challenge-accepted-b63b428b2200.herokuapp.com//challenges", {
         name: name.value,
         description: description.value,
         created_by_id: username.id,

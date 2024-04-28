@@ -28,7 +28,7 @@ function EditCreationPage() {
 
     // Updates data to database
     axios
-      .put(`http://localhost:8080/creations/${creationId}`, {
+      .put(`https://challenge-accepted-b63b428b2200.herokuapp.com/creations/${creationId}`, {
         name: name.value,
         description: description.value,
         created_by_id: username.id,
@@ -48,7 +48,7 @@ function EditCreationPage() {
     event.preventDefault();
 
     // Resets all fields
-    axios.get(`http://localhost:8080/creations/${creationId}`).then((res) => {
+    axios.get(`https://challenge-accepted-b63b428b2200.herokuapp.com/creations/${creationId}`).then((res) => {
       setChallenge(res.data[0].challenge);
       setCategory(res.data[0].category);
       setType(res.data[0].type);

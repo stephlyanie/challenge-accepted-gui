@@ -14,7 +14,7 @@ function CreationsPage() {
   // Pulls data of single creation from database
   useEffect(() => {
     axios
-      .get("http://localhost:8080/creations")
+      .get("https://challenge-accepted-b63b428b2200.herokuapp.com/creations")
       .then((res) => {
         setData(res.data);
       })

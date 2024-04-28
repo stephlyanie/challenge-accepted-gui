@@ -21,7 +21,7 @@ function DetailsCard({ data }) {
     // Set the axios url to creations
     if (data.challenge) {
       axios
-        .delete(`http://localhost:8080/creations/${data.id}`)
+        .delete(`https://challenge-accepted-b63b428b2200.herokuapp.com/creations/${data.id}`)
         .then(() => {
           setTimeout(() => {
             navigate("/creations");
@@ -37,7 +37,7 @@ function DetailsCard({ data }) {
     // Set the axios url to challenges
     if (!data.challenge) {
       axios
-        .delete(`http://localhost:8080/challenges/${data.id}`)
+        .delete(`https://challenge-accepted-b63b428b2200.herokuapp.com/challenges/${data.id}`)
         .then(() => {
           setTimeout(() => {
             navigate("/challenges");

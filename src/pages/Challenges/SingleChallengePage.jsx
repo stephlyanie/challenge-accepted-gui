@@ -29,7 +29,7 @@ function SingleChallengePage() {
   // Pulls data of single challenge from database
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/challenges/${challengeId}`)
+      .get(`https://challenge-accepted-b63b428b2200.herokuapp.com/challenges/${challengeId}`)
       .then((res) => {
         setData(res.data[0]);
       })
@@ -41,7 +41,7 @@ function SingleChallengePage() {
   // Pulls data of all creations made for a specific challenge
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/challenges/${challengeId}/creations`)
+      .get(`https://challenge-accepted-b63b428b2200.herokuapp.com/challenges/${challengeId}/creations`)
       .then((res) => {
         setGallery(res.data);
         console.log(res.data)

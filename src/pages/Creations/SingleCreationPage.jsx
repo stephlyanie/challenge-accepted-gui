@@ -28,7 +28,7 @@ function SingleCreationPage() {
   // Pulls data of single creation from database
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/creations/${creationId}`)
+      .get(`https://challenge-accepted-b63b428b2200.herokuapp.com/creations/${creationId}`)
       .then((res) => {
         setData(res.data[0]);
         setUserId(res.data[0].created_by_id);
@@ -41,7 +41,7 @@ function SingleCreationPage() {
   // Pulls data of all creations made by same user
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/users/${userId}/creations`)
+      .get(`https://challenge-accepted-b63b428b2200.herokuapp.com/users/${userId}/creations`)
       .then((res) => {
         setGallery(res.data);
         setGalleryTitle(`More creations by ${data.username}`);

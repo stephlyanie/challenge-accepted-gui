@@ -38,7 +38,7 @@ function CreationForm({
   useEffect(() => {
     if (challengeId) {
       axios
-        .get(`http://localhost:8080/challenges/${challengeId}`)
+        .get(`https://challenge-accepted-b63b428b2200.herokuapp.com/challenges/${challengeId}`)
         .then((res) => {
           setChallenge(res.data[0].name);
           setCategory(res.data[0].category);
@@ -63,7 +63,7 @@ function CreationForm({
   // Set all form field values from database
   useEffect(() => {
     if (creationId) {
-      axios.get(`http://localhost:8080/creations/${creationId}`).then((res) => {
+      axios.get(`https://challenge-accepted-b63b428b2200.herokuapp.com/creations/${creationId}`).then((res) => {
         setChallenge(res.data[0].challenge);
         setCategory(res.data[0].category);
         setType(res.data[0].type);
@@ -79,7 +79,7 @@ function CreationForm({
     // Set list of challenges to all challenges in database
     if (!challenge) {
       axios
-        .get("http://localhost:8080/challenges")
+        .get("https://challenge-accepted-b63b428b2200.herokuapp.com/challenges")
         .then((res) => {
           setChallenges(res.data);
         })
@@ -93,7 +93,7 @@ function CreationForm({
     // If no type already, set the type based on the challenge Id
     if (challenge) {
       axios
-        .get(`http://localhost:8080/challenges/${getChallengeId}`)
+        .get(`https://challenge-accepted-b63b428b2200.herokuapp.com/challenges/${getChallengeId}`)
         .then((res) => {
           setCategory(res.data[0].category);
 
@@ -110,7 +110,7 @@ function CreationForm({
   // Create dropdown values for catetories
   useEffect(() => {
     axios
-      .get("http://localhost:8080/categories/")
+      .get("https://challenge-accepted-b63b428b2200.herokuapp.com/categories/")
       .then((res) => {
         setCategories(res.data);
       })
@@ -124,7 +124,7 @@ function CreationForm({
     // If no category value
     // Set list of types from database
     axios
-      .get("http://localhost:8080/types/")
+      .get("https://challenge-accepted-b63b428b2200.herokuapp.com/types/")
       .then((res) => {
         setTypes(res.data);
       })
@@ -136,7 +136,7 @@ function CreationForm({
     // Set type based on the category Id
     if (category) {
       axios
-        .get(`http://localhost:8080/categories/${getCategoryId}/types`)
+        .get(`https://challenge-accepted-b63b428b2200.herokuapp.com/categories/${getCategoryId}/types`)
         .then((res) => {
           setTypes(res.data);
         })
